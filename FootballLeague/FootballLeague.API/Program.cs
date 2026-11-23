@@ -1,26 +1,30 @@
 
 using FootballLeague.API.Data;
+using FootballLeague.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Registrar los controladores de la API REST
+// Controladores REST
 builder.Services.AddControllers();
 
-// Configurar SQLite
+// Base de datos SQLite
 builder.Services.AddDbContext<FootballLeagueDbContext>(
     options =>
         options.UseSqlite(
             builder.Configuration.GetConnectionString(
                 "FootballLeagueConnection")));
 
-// Configurar OpenAPI
+// Servicios de lógica de negocio
+builder.Services.AddScoped<CalendarioService>();
+builder.Services.AddScoped<ClasificacionService>();
+
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Activar Swagger durante el desarrollo
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -82,7 +82,8 @@ namespace FootballLeague.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EquipoId");
+                    b.HasIndex("EquipoId", "Dorsal")
+                        .IsUnique();
 
                     b.ToTable("Jugadores");
                 });

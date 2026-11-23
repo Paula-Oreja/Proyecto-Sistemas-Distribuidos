@@ -52,13 +52,20 @@ namespace FootballLeague.API.Data
                 .HasForeignKey(j => j.EquipoId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // UNA JORNADA NO PUEDE REPETIRSE EN UNA LIGA
+            // UN DORSAL NO PUEDE REPETIRSE
+            // DENTRO DEL MISMO EQUIPO
+
+            modelBuilder.Entity<Jugador>()
+                .HasIndex(j => new { j.EquipoId, j.Dorsal })
+                .IsUnique();
+
+            // JORNADAS
 
             modelBuilder.Entity<Jornada>()
                 .HasIndex(j => new { j.LigaId, j.Numero })
                 .IsUnique();
 
-            // RELACIÓN LIGAS - EQUIPOS
+            // PARTICIPACIONES
 
             modelBuilder.Entity<ParticipacionLiga>()
                 .HasOne(p => p.Liga)
@@ -72,14 +79,11 @@ namespace FootballLeague.API.Data
                 .HasForeignKey(p => p.EquipoId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // UN EQUIPO SOLO PUEDE INSCRIBIRSE
-            // UNA VEZ EN LA MISMA LIGA
-
             modelBuilder.Entity<ParticipacionLiga>()
                 .HasIndex(p => new { p.LigaId, p.EquipoId })
                 .IsUnique();
 
-            // CONTROL DE CONCURRENCIA DE RESULTADOS
+            // CONTROL DE CONCURRENCIA
 
             modelBuilder.Entity<Partido>()
                 .Property(p => p.Version)
@@ -87,4 +91,3 @@ namespace FootballLeague.API.Data
         }
     }
 }
-
