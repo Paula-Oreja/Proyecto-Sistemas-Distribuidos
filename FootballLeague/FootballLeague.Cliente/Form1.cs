@@ -1,5 +1,6 @@
 
 using FootballLeague.Cliente.Services;
+using FootballLeague.Cliente.Forms;
 using System.Drawing;
 using System.Text.Json;
 
@@ -15,11 +16,20 @@ namespace FootballLeague.Cliente
 
         private DataGridView tabla = null!;
         private ComboBox selectorLiga = null!;
+        private ComboBox selectorJornada = null!;
         private Label titulo = null!;
         private Label estado = null!;
+        private Label etiquetaJornada = null!;
+        private FlowLayoutPanel barraAcciones = null!;
+        private Button botonCrearEquipo = null!;
+        private Button botonEditarEquipo = null!;
+        private Button botonResultado = null!;
+
+        private readonly List<PartidoFila> partidos = new();
 
         private string seccionActual = "Clasificación";
         private bool iniciando = true;
+        private bool cargandoJornadas = false;
 
         private class LigaOpcion
         {
@@ -27,9 +37,7 @@ namespace FootballLeague.Cliente
             public string Nombre { get; set; } = "";
 
             public override string ToString()
-            {
-                return $"{Nombre} (ID {Id})";
-            }
+                => $"{Nombre} (ID {Id})";
         }
 
         private class PartidoFila
@@ -38,7 +46,8 @@ namespace FootballLeague.Cliente
             public int PartidoID { get; set; }
             public string Local { get; set; } = "";
             public string Visitante { get; set; } = "";
-            public string Resultado { get; set; } = "";
+            public string Resultado { get; set; } = "Pendiente";
+            public string Estado { get; set; } = "Pendiente";
         }
 
         public Form1()
@@ -65,7 +74,15 @@ namespace FootballLeague.Cliente
             MinimumSize = new Size(1000, 600);
             BackColor = fondo;
 
-            // MENÚ LATERAL
+            Panel contenido = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20),
+                BackColor = fondo
+            };
+
+            Controls.Add(contenido);
+
             Panel menu = new Panel
             {
                 Dock = DockStyle.Left,
@@ -74,17 +91,16 @@ namespace FootballLeague.Cliente
             };
 
             Controls.Add(menu);
+            menu.BringToFront();
 
-            Label logo = new Label
+            menu.Controls.Add(new Label
             {
                 Text = "FootballLeague",
                 Font = new Font("Segoe UI", 16, FontStyle.Bold),
                 ForeColor = Color.White,
                 Location = new Point(12, 25),
                 Size = new Size(205, 55)
-            };
-
-            menu.Controls.Add(logo);
+            });
 
             string[] secciones =
             {
@@ -92,10 +108,11 @@ namespace FootballLeague.Cliente
                 "Equipos",
                 "Jugadores",
                 "Calendario",
+                "Resultados",
                 "Clasificación"
             };
 
-            int y = 110;
+            int y = 105;
 
             foreach (string seccion in secciones)
             {
@@ -114,34 +131,18 @@ namespace FootballLeague.Cliente
                 };
 
                 boton.FlatAppearance.BorderSize = 0;
-
                 boton.Click += async (_, _) =>
                     await MostrarSeccion(nombre);
 
                 menu.Controls.Add(boton);
-                y += 58;
+                y += 57;
             }
 
-            // CONTENIDO PRINCIPAL
-            Panel contenido = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(20),
-                BackColor = fondo
-            };
-
-            Controls.Add(contenido);
-            contenido.BringToFront();
-
-            // Distribución fija:
-            // Selector arriba, título debajo,
-            // tabla en el centro y estado abajo.
             TableLayoutPanel distribucion = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
                 ColumnCount = 1,
-                RowCount = 4,
-                BackColor = fondo,
+                RowCount = 5,
                 Margin = Padding.Empty,
                 Padding = Padding.Empty
             };
@@ -150,10 +151,13 @@ namespace FootballLeague.Cliente
                 new ColumnStyle(SizeType.Percent, 100));
 
             distribucion.RowStyles.Add(
-                new RowStyle(SizeType.Absolute, 60));
+                new RowStyle(SizeType.Absolute, 55));
 
             distribucion.RowStyles.Add(
                 new RowStyle(SizeType.Absolute, 70));
+
+            distribucion.RowStyles.Add(
+                new RowStyle(SizeType.Absolute, 55));
 
             distribucion.RowStyles.Add(
                 new RowStyle(SizeType.Percent, 100));
@@ -163,11 +167,9 @@ namespace FootballLeague.Cliente
 
             contenido.Controls.Add(distribucion);
 
-            // SELECTOR DE LIGA
-            FlowLayoutPanel barra = new FlowLayoutPanel
+            FlowLayoutPanel barraSuperior = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
-                FlowDirection = FlowDirection.LeftToRight,
                 WrapContents = false,
                 Padding = new Padding(0, 8, 0, 0)
             };
@@ -175,56 +177,96 @@ namespace FootballLeague.Cliente
             selectorLiga = new ComboBox
             {
                 Width = 330,
-                Height = 35,
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Font = new Font("Segoe UI", 11),
                 Margin = new Padding(0, 0, 15, 0)
             };
 
-            selectorLiga.SelectedIndexChanged +=
-                async (_, _) =>
-                {
-                    if (!iniciando)
-                        await MostrarSeccion(seccionActual);
-                };
-
-            barra.Controls.Add(selectorLiga);
-
-            Button actualizar = new Button
+            selectorLiga.SelectedIndexChanged += async (_, _) =>
             {
-                Text = "Actualizar",
-                Size = new Size(125, 35),
-                BackColor = azulClaro,
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Cursor = Cursors.Hand
+                if (!iniciando)
+                    await MostrarSeccion(seccionActual);
             };
 
-            actualizar.FlatAppearance.BorderSize = 0;
+            barraSuperior.Controls.Add(selectorLiga);
 
+            Button actualizar = CrearBoton("Actualizar", 125);
             actualizar.Click += async (_, _) =>
-            {
                 await MostrarSeccion(seccionActual);
-            };
 
-            barra.Controls.Add(actualizar);
+            barraSuperior.Controls.Add(actualizar);
+            distribucion.Controls.Add(barraSuperior, 0, 0);
 
-            distribucion.Controls.Add(barra, 0, 0);
-
-            // TÍTULO
             titulo = new Label
             {
                 Text = "Clasificación",
                 Dock = DockStyle.Fill,
-                Font = new Font(
-                    "Segoe UI", 24, FontStyle.Bold),
+                Font = new Font("Segoe UI", 24, FontStyle.Bold),
                 ForeColor = azul,
                 TextAlign = ContentAlignment.MiddleLeft
             };
 
             distribucion.Controls.Add(titulo, 0, 1);
 
-            // TABLA
+            barraAcciones = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                WrapContents = false,
+                Padding = new Padding(0, 5, 0, 0)
+            };
+
+            etiquetaJornada = new Label
+            {
+                Text = "Jornada:",
+                Width = 85,
+                Height = 35,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Font = new Font("Segoe UI", 11)
+            };
+
+            barraAcciones.Controls.Add(etiquetaJornada);
+
+            selectorJornada = new ComboBox
+            {
+                Width = 130,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Segoe UI", 11)
+            };
+
+            selectorJornada.SelectedIndexChanged += (_, _) =>
+            {
+                if (!cargandoJornadas)
+                    MostrarPartidosJornada();
+            };
+
+            barraAcciones.Controls.Add(selectorJornada);
+
+            botonResultado = CrearBoton(
+                "Registrar resultado", 190);
+
+            botonResultado.Margin = new Padding(20, 0, 0, 0);
+            botonResultado.Click += async (_, _) =>
+                await RegistrarResultado();
+
+            barraAcciones.Controls.Add(botonResultado);
+
+            botonCrearEquipo = CrearBoton("+ Crear equipo", 160);
+
+            botonCrearEquipo.Click += async (_, _) =>
+                await AbrirCrearEquipo();
+
+            barraAcciones.Controls.Add(botonCrearEquipo);
+
+            botonEditarEquipo = CrearBoton("Editar equipo", 160);
+            botonEditarEquipo.Margin = new Padding(12, 0, 0, 0);
+
+            botonEditarEquipo.Click += async (_, _) =>
+                await AbrirEditarEquipo();
+
+            barraAcciones.Controls.Add(botonEditarEquipo);
+
+            distribucion.Controls.Add(barraAcciones, 0, 2);
+
             tabla = new DataGridView
             {
                 Dock = DockStyle.Fill,
@@ -236,39 +278,28 @@ namespace FootballLeague.Cliente
                 MultiSelect = false,
                 SelectionMode =
                     DataGridViewSelectionMode.FullRowSelect,
-
                 AutoSizeColumnsMode =
                     DataGridViewAutoSizeColumnsMode.Fill,
-
                 BackgroundColor = Color.White,
                 BorderStyle = BorderStyle.None,
                 Font = new Font("Segoe UI", 10),
+                RowTemplate = { Height = 38 },
                 ColumnHeadersHeight = 45,
                 ColumnHeadersHeightSizeMode =
                     DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
-
                 ScrollBars = ScrollBars.Both,
-                AutoGenerateColumns = true,
                 EnableHeadersVisualStyles = false
             };
 
-            tabla.RowTemplate.Height = 38;
-
             tabla.ColumnHeadersDefaultCellStyle.BackColor = azul;
-            tabla.ColumnHeadersDefaultCellStyle.ForeColor =
-                Color.White;
-
+            tabla.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             tabla.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
-
-            tabla.ColumnHeadersDefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
 
             tabla.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(215, 229, 250);
 
-            tabla.DefaultCellStyle.SelectionForeColor =
-                Color.Black;
+            tabla.DefaultCellStyle.SelectionForeColor = Color.Black;
 
             tabla.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(241, 245, 250);
@@ -276,19 +307,14 @@ namespace FootballLeague.Cliente
             tabla.DataBindingComplete += (_, _) =>
             {
                 AjustarColumnas();
+                tabla.ClearSelection();
 
                 if (tabla.Rows.Count > 0)
-                {
-                    tabla.ClearSelection();
-
-                    // Siempre empezamos por la primera fila.
                     tabla.FirstDisplayedScrollingRowIndex = 0;
-                }
             };
 
-            distribucion.Controls.Add(tabla, 0, 2);
+            distribucion.Controls.Add(tabla, 0, 3);
 
-            // ESTADO
             estado = new Label
             {
                 Text = "Preparando conexión...",
@@ -298,50 +324,67 @@ namespace FootballLeague.Cliente
                 TextAlign = ContentAlignment.MiddleLeft
             };
 
-            distribucion.Controls.Add(estado, 0, 3);
+            distribucion.Controls.Add(estado, 0, 4);
 
+            ActualizarBotones();
             ResumeLayout(true);
+        }
+
+        private Button CrearBoton(string texto, int ancho)
+        {
+            Button boton = new Button
+            {
+                Text = texto,
+                Size = new Size(ancho, 35),
+                BackColor = azulClaro,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Cursor = Cursors.Hand
+            };
+
+            boton.FlatAppearance.BorderSize = 0;
+            return boton;
+        }
+
+        private void ActualizarBotones()
+        {
+            bool esCalendario = seccionActual == "Calendario";
+            bool esResultados = seccionActual == "Resultados";
+            bool esEquipos = seccionActual == "Equipos";
+
+            barraAcciones.Visible =
+                esCalendario || esResultados || esEquipos;
+
+            etiquetaJornada.Visible = esCalendario || esResultados;
+            selectorJornada.Visible = esCalendario || esResultados;
+
+            botonResultado.Visible = esResultados;
+            botonCrearEquipo.Visible = esEquipos;
+            botonEditarEquipo.Visible = esEquipos;
         }
 
         private void AjustarColumnas()
         {
-            if (tabla.Columns.Count == 0)
-                return;
-
             foreach (DataGridViewColumn columna in tabla.Columns)
             {
                 columna.MinimumWidth = 55;
                 columna.FillWeight = 65;
             }
 
-            if (tabla.Columns.Contains("Equipo"))
+            foreach (string nombre in new[]
             {
-                tabla.Columns["Equipo"]!.MinimumWidth = 200;
-                tabla.Columns["Equipo"]!.FillWeight = 250;
+                "Equipo", "Nombre", "Local", "Visitante"
+            })
+            {
+                if (tabla.Columns.Contains(nombre))
+                {
+                    tabla.Columns[nombre]!.MinimumWidth = 180;
+                    tabla.Columns[nombre]!.FillWeight = 200;
+                }
             }
 
-            if (tabla.Columns.Contains("Nombre"))
-            {
-                tabla.Columns["Nombre"]!.MinimumWidth = 180;
-                tabla.Columns["Nombre"]!.FillWeight = 180;
-            }
-
-            if (tabla.Columns.Contains("Local"))
-            {
-                tabla.Columns["Local"]!.MinimumWidth = 170;
-                tabla.Columns["Local"]!.FillWeight = 180;
-            }
-
-            if (tabla.Columns.Contains("Visitante"))
-            {
-                tabla.Columns["Visitante"]!.MinimumWidth = 170;
-                tabla.Columns["Visitante"]!.FillWeight = 180;
-            }
-
-            if (tabla.Columns.Contains("Puntos"))
-            {
-                tabla.Columns["Puntos"]!.FillWeight = 85;
-            }
+            if (tabla.Columns.Contains("PartidoID"))
+                tabla.Columns["PartidoID"]!.HeaderText = "ID Partido";
         }
 
         private async Task CargarSelectorLigas()
@@ -349,8 +392,7 @@ namespace FootballLeague.Cliente
             try
             {
                 var datos =
-                    await api.ObtenerListaAsync<JsonElement>(
-                        "api/Ligas");
+                    await api.ObtenerListaAsync<JsonElement>("api/Ligas");
 
                 var opciones = datos.Select(x => new LigaOpcion
                 {
@@ -360,8 +402,7 @@ namespace FootballLeague.Cliente
 
                 selectorLiga.DataSource = opciones;
 
-                var principal =
-                    opciones.FirstOrDefault(x => x.Id == 2);
+                var principal = opciones.FirstOrDefault(x => x.Id == 2);
 
                 if (principal != null)
                     selectorLiga.SelectedItem = principal;
@@ -380,8 +421,7 @@ namespace FootballLeague.Cliente
 
         private int LigaSeleccionada()
         {
-            return (selectorLiga.SelectedItem
-                as LigaOpcion)?.Id ?? 2;
+            return (selectorLiga.SelectedItem as LigaOpcion)?.Id ?? 2;
         }
 
         private async Task MostrarSeccion(string seccion)
@@ -389,6 +429,8 @@ namespace FootballLeague.Cliente
             seccionActual = seccion;
             titulo.Text = seccion;
             estado.Text = "Cargando datos...";
+
+            ActualizarBotones();
             tabla.DataSource = null;
 
             try
@@ -410,6 +452,7 @@ namespace FootballLeague.Cliente
                         break;
 
                     case "Calendario":
+                    case "Resultados":
                         await CargarCalendario(ligaId);
                         break;
 
@@ -420,11 +463,11 @@ namespace FootballLeague.Cliente
 
                 estado.Text =
                     $"Datos cargados correctamente. " +
-                    $"Registros: {tabla.Rows.Count}";
+                    $"Registros visibles: {tabla.Rows.Count}";
             }
             catch (Exception ex)
             {
-                estado.Text = "Error al cargar datos.";
+                estado.Text = "Error al cargar los datos.";
 
                 MessageBox.Show(
                     ex.Message,
@@ -434,11 +477,49 @@ namespace FootballLeague.Cliente
             }
         }
 
+        private async Task AbrirCrearEquipo()
+        {
+            using CrearEquipoForm ventana = new CrearEquipoForm();
+
+            if (ventana.ShowDialog(this) == DialogResult.OK)
+                await MostrarSeccion("Equipos");
+        }
+
+        private async Task AbrirEditarEquipo()
+        {
+            if (seccionActual != "Equipos" ||
+                tabla.CurrentRow == null ||
+                !tabla.Columns.Contains("ID"))
+            {
+                MessageBox.Show(
+                    "Selecciona primero un equipo de la tabla.",
+                    "Editar equipo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            object? valor = tabla.CurrentRow.Cells["ID"].Value;
+
+            if (valor == null ||
+                !int.TryParse(valor.ToString(), out int equipoId))
+            {
+                MessageBox.Show(
+                    "No se pudo identificar el equipo seleccionado.");
+                return;
+            }
+
+            using EditarEquipoForm ventana =
+                new EditarEquipoForm(equipoId);
+
+            if (ventana.ShowDialog(this) == DialogResult.OK)
+                await MostrarSeccion("Equipos");
+        }
+
         private async Task CargarLigas()
         {
             var datos =
-                await api.ObtenerListaAsync<JsonElement>(
-                    "api/Ligas");
+                await api.ObtenerListaAsync<JsonElement>("api/Ligas");
 
             tabla.DataSource = datos.Select(x => new
             {
@@ -452,8 +533,7 @@ namespace FootballLeague.Cliente
         private async Task CargarEquipos()
         {
             var datos =
-                await api.ObtenerListaAsync<JsonElement>(
-                    "api/Equipos");
+                await api.ObtenerListaAsync<JsonElement>("api/Equipos");
 
             tabla.DataSource = datos.Select(x => new
             {
@@ -467,8 +547,7 @@ namespace FootballLeague.Cliente
         private async Task CargarJugadores()
         {
             var datos =
-                await api.ObtenerListaAsync<JsonElement>(
-                    "api/Jugadores");
+                await api.ObtenerListaAsync<JsonElement>("api/Jugadores");
 
             tabla.DataSource = datos.Select(x => new
             {
@@ -482,41 +561,80 @@ namespace FootballLeague.Cliente
 
         private async Task CargarCalendario(int ligaId)
         {
+            int jornadaAnterior = 1;
+
+            if (selectorJornada.SelectedItem is int anterior)
+                jornadaAnterior = anterior;
+
             var jornadas =
                 await api.ObtenerListaAsync<JsonElement>(
                     $"api/Calendario/liga/{ligaId}");
 
-            var filas = new List<PartidoFila>();
+            partidos.Clear();
 
             foreach (var jornada in jornadas)
             {
                 int numero = Entero(jornada, "numero");
 
                 if (!jornada.TryGetProperty(
-                    "partidos", out var partidos) ||
-                    partidos.ValueKind != JsonValueKind.Array)
-                {
+                    "partidos", out var lista) ||
+                    lista.ValueKind != JsonValueKind.Array)
                     continue;
-                }
 
-                foreach (var partido in partidos.EnumerateArray())
+                foreach (var partido in lista.EnumerateArray())
                 {
-                    filas.Add(new PartidoFila
+                    bool finalizado = Booleano(partido, "finalizado");
+
+                    partidos.Add(new PartidoFila
                     {
                         Jornada = numero,
                         PartidoID = Entero(partido, "id"),
-                        Local = Texto(partido, "equipoLocal"),
-                        Visitante = Texto(partido, "equipoVisitante"),
-                        Resultado = Booleano(partido, "finalizado")
-                            ? Texto(partido, "golesLocal") +
-                              " - " +
-                              Texto(partido, "golesVisitante")
+                        Local = NombreEquipo(partido, "equipoLocal"),
+                        Visitante = NombreEquipo(partido, "equipoVisitante"),
+                        Resultado = finalizado
+                            ? $"{Texto(partido, "golesLocal")} - " +
+                              $"{Texto(partido, "golesVisitante")}"
+                            : "Pendiente",
+                        Estado = finalizado
+                            ? "Finalizado"
                             : "Pendiente"
                     });
                 }
             }
 
-            tabla.DataSource = filas;
+            cargandoJornadas = true;
+
+            var numeros = partidos
+                .Select(p => p.Jornada)
+                .Distinct()
+                .OrderBy(n => n)
+                .ToList();
+
+            selectorJornada.DataSource = null;
+            selectorJornada.DataSource = numeros;
+
+            if (numeros.Contains(jornadaAnterior))
+                selectorJornada.SelectedItem = jornadaAnterior;
+
+            cargandoJornadas = false;
+            MostrarPartidosJornada();
+        }
+
+        private void MostrarPartidosJornada()
+        {
+            if (selectorJornada.SelectedItem is not int numero)
+            {
+                tabla.DataSource = null;
+                return;
+            }
+
+            tabla.DataSource = partidos
+                .Where(p => p.Jornada == numero)
+                .OrderBy(p => p.PartidoID)
+                .ToList();
+
+            estado.Text =
+                $"Jornada {numero}: {tabla.Rows.Count} partidos.";
         }
 
         private async Task CargarClasificacion(int ligaId)
@@ -540,12 +658,183 @@ namespace FootballLeague.Cliente
             }).ToList();
         }
 
+        private async Task RegistrarResultado()
+        {
+            if (tabla.CurrentRow?.DataBoundItem is not PartidoFila partido)
+            {
+                MessageBox.Show(
+                    "Selecciona primero un partido de la tabla.",
+                    "Seleccionar partido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                var datos = await api.ObtenerAsync<JsonElement>(
+                    $"api/Resultados/{partido.PartidoID}");
+
+                if (datos.ValueKind != JsonValueKind.Object)
+                {
+                    MessageBox.Show("No se encontró el partido.");
+                    return;
+                }
+
+                int version = Entero(datos, "version");
+
+                if (version < 1)
+                {
+                    MessageBox.Show(
+                        "No se pudo obtener la versión del partido.");
+                    return;
+                }
+
+                using Form ventana = new Form
+                {
+                    Text = "Registrar resultado",
+                    Size = new Size(440, 340),
+                    StartPosition = FormStartPosition.CenterParent,
+                    FormBorderStyle = FormBorderStyle.FixedDialog,
+                    MaximizeBox = false,
+                    MinimizeBox = false,
+                    BackColor = fondo
+                };
+
+                ventana.Controls.Add(new Label
+                {
+                    Text = $"{partido.Local} VS {partido.Visitante}",
+                    Location = new Point(20, 20),
+                    Size = new Size(390, 55),
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Segoe UI", 13, FontStyle.Bold)
+                });
+
+                ventana.Controls.Add(new Label
+                {
+                    Text = "Goles local",
+                    Location = new Point(65, 95),
+                    AutoSize = true
+                });
+
+                ventana.Controls.Add(new Label
+                {
+                    Text = "Goles visitante",
+                    Location = new Point(245, 95),
+                    AutoSize = true
+                });
+
+                NumericUpDown golesLocal = new NumericUpDown
+                {
+                    Location = new Point(65, 125),
+                    Width = 100,
+                    Minimum = 0,
+                    Maximum = 99,
+                    Value = Entero(datos, "golesLocal")
+                };
+
+                ventana.Controls.Add(golesLocal);
+
+                NumericUpDown golesVisitante = new NumericUpDown
+                {
+                    Location = new Point(245, 125),
+                    Width = 100,
+                    Minimum = 0,
+                    Maximum = 99,
+                    Value = Entero(datos, "golesVisitante")
+                };
+
+                ventana.Controls.Add(golesVisitante);
+
+                Button confirmar = CrearBoton("Guardar resultado", 170);
+                confirmar.Location = new Point(125, 205);
+                confirmar.DialogResult = DialogResult.OK;
+
+                ventana.Controls.Add(confirmar);
+                ventana.AcceptButton = confirmar;
+
+                if (ventana.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+                var cuerpo = new
+                {
+                    golesLocal = (int)golesLocal.Value,
+                    golesVisitante = (int)golesVisitante.Value,
+                    version
+                };
+
+                using var respuesta = await api.ModificarAsync(
+                    $"api/Resultados/{partido.PartidoID}",
+                    cuerpo);
+
+                if (respuesta.IsSuccessStatusCode)
+                {
+                    MessageBox.Show(
+                        "Resultado guardado correctamente.",
+                        "FootballLeague",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    await MostrarSeccion(seccionActual);
+                }
+                else if ((int)respuesta.StatusCode == 409)
+                {
+                    MessageBox.Show(
+                        "El partido ha sido modificado por otro usuario.\n" +
+                        "Actualiza los datos antes de intentarlo de nuevo.",
+                        "Conflicto de concurrencia",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    await MostrarSeccion(seccionActual);
+                }
+                else
+                {
+                    string detalle =
+                        await respuesta.Content.ReadAsStringAsync();
+
+                    MessageBox.Show(
+                        $"No se pudo guardar el resultado.\n" +
+                        $"Código: {(int)respuesta.StatusCode}\n\n" +
+                        detalle,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Error al registrar resultado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private static string NombreEquipo(
+            JsonElement partido, string propiedad)
+        {
+            if (!partido.TryGetProperty(propiedad, out var valor))
+                return "Equipo desconocido";
+
+            if (valor.ValueKind == JsonValueKind.String)
+                return valor.GetString() ?? "Equipo desconocido";
+
+            if (valor.ValueKind == JsonValueKind.Object &&
+                valor.TryGetProperty("nombre", out var nombre))
+                return nombre.GetString() ?? "Equipo desconocido";
+
+            return "Equipo desconocido";
+        }
+
         private static string Texto(
             JsonElement objeto, string propiedad)
         {
             if (objeto.ValueKind == JsonValueKind.Object &&
                 objeto.TryGetProperty(propiedad, out var valor) &&
-                valor.ValueKind != JsonValueKind.Null)
+                valor.ValueKind != JsonValueKind.Null &&
+                valor.ValueKind != JsonValueKind.Undefined)
             {
                 return valor.ValueKind == JsonValueKind.String
                     ? valor.GetString() ?? ""
@@ -559,14 +848,16 @@ namespace FootballLeague.Cliente
             JsonElement objeto, string propiedad)
         {
             return int.TryParse(
-                Texto(objeto, propiedad), out int n) ? n : 0;
+                Texto(objeto, propiedad), out int numero)
+                ? numero : 0;
         }
 
         private static bool Booleano(
             JsonElement objeto, string propiedad)
         {
             return bool.TryParse(
-                Texto(objeto, propiedad), out bool b) && b;
+                Texto(objeto, propiedad), out bool valor)
+                && valor;
         }
     }
 }
