@@ -14,6 +14,10 @@ namespace FootballLeague.API.Models
         public string Estadio { get; set; } = "";
 
         public List<Jugador> Jugadores { get; set; } = new();
+
+        public List<ParticipacionLiga> Participaciones { get; set; }
+            = new();
     }
 }
+
 

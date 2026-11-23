@@ -14,5 +14,9 @@ namespace FootballLeague.API.Models
         public bool Activa { get; set; } = true;
 
         public List<Jornada> Jornadas { get; set; } = new();
+
+        public List<ParticipacionLiga> Participaciones { get; set; }
+            = new();
     }
 }
+
