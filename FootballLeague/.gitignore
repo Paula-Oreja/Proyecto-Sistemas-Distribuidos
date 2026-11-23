@@ -1,0 +1,24 @@
+# Archivos temporales de Visual Studio
+.vs/
+**/.vs/
+*.suo
+*.user
+*.rsuser
+
+# Archivos generados al compilar
+[Bb]in/
+[Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
+
+# Archivos temporales
+*.tmp
+*.cache
+*.log
+
+# Archivos de usuario
+*.userosscache
+*.sln.docstates
+
+# Archivos de publicación
+publish/
