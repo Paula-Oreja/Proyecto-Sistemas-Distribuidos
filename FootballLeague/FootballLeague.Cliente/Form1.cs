@@ -70,28 +70,43 @@ namespace FootballLeague.Cliente
 
             Text = "FootballLeague - Gestor de Fútbol";
             StartPosition = FormStartPosition.CenterScreen;
-            Size = new Size(1350, 800);
-            MinimumSize = new Size(1000, 600);
+            Size = new Size(1400, 820);
+            MinimumSize = new Size(1100, 650);
             BackColor = fondo;
 
-            Panel contenido = new Panel
+            // ESTRUCTURA PRINCIPAL
+            // Usamos TableLayoutPanel para que el menú
+            // y el contenido nunca se superpongan.
+
+            TableLayoutPanel estructura = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
-                Padding = new Padding(20),
-                BackColor = fondo
+                ColumnCount = 2,
+                RowCount = 1,
+                Margin = Padding.Empty,
+                Padding = Padding.Empty
             };
 
-            Controls.Add(contenido);
+            estructura.ColumnStyles.Add(
+                new ColumnStyle(SizeType.Absolute, 220));
+
+            estructura.ColumnStyles.Add(
+                new ColumnStyle(SizeType.Percent, 100));
+
+            estructura.RowStyles.Add(
+                new RowStyle(SizeType.Percent, 100));
+
+            Controls.Add(estructura);
+
+            // MENÚ LATERAL
 
             Panel menu = new Panel
             {
-                Dock = DockStyle.Left,
-                Width = 220,
+                Dock = DockStyle.Fill,
                 BackColor = azul
             };
 
-            Controls.Add(menu);
-            menu.BringToFront();
+            estructura.Controls.Add(menu, 0, 0);
 
             menu.Controls.Add(new Label
             {
@@ -131,12 +146,24 @@ namespace FootballLeague.Cliente
                 };
 
                 boton.FlatAppearance.BorderSize = 0;
+
                 boton.Click += async (_, _) =>
                     await MostrarSeccion(nombre);
 
                 menu.Controls.Add(boton);
                 y += 57;
             }
+
+            // PANEL DE CONTENIDO
+
+            Panel contenido = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20),
+                BackColor = fondo
+            };
+
+            estructura.Controls.Add(contenido, 1, 0);
 
             TableLayoutPanel distribucion = new TableLayoutPanel
             {
@@ -167,6 +194,8 @@ namespace FootballLeague.Cliente
 
             contenido.Controls.Add(distribucion);
 
+            // SELECTOR DE LIGA
+
             FlowLayoutPanel barraSuperior = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -176,7 +205,7 @@ namespace FootballLeague.Cliente
 
             selectorLiga = new ComboBox
             {
-                Width = 330,
+                Width = 350,
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Font = new Font("Segoe UI", 11),
                 Margin = new Padding(0, 0, 15, 0)
@@ -191,11 +220,14 @@ namespace FootballLeague.Cliente
             barraSuperior.Controls.Add(selectorLiga);
 
             Button actualizar = CrearBoton("Actualizar", 125);
+
             actualizar.Click += async (_, _) =>
                 await MostrarSeccion(seccionActual);
 
             barraSuperior.Controls.Add(actualizar);
             distribucion.Controls.Add(barraSuperior, 0, 0);
+
+            // TÍTULO
 
             titulo = new Label
             {
@@ -207,6 +239,8 @@ namespace FootballLeague.Cliente
             };
 
             distribucion.Controls.Add(titulo, 0, 1);
+
+            // BARRA DE ACCIONES
 
             barraAcciones = new FlowLayoutPanel
             {
@@ -245,6 +279,7 @@ namespace FootballLeague.Cliente
                 "Registrar resultado", 190);
 
             botonResultado.Margin = new Padding(20, 0, 0, 0);
+
             botonResultado.Click += async (_, _) =>
                 await RegistrarResultado();
 
@@ -266,6 +301,8 @@ namespace FootballLeague.Cliente
             barraAcciones.Controls.Add(botonEditarEquipo);
 
             distribucion.Controls.Add(barraAcciones, 0, 2);
+
+            // TABLA
 
             tabla = new DataGridView
             {
@@ -292,7 +329,9 @@ namespace FootballLeague.Cliente
             };
 
             tabla.ColumnHeadersDefaultCellStyle.BackColor = azul;
-            tabla.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            tabla.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
             tabla.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
 
@@ -310,10 +349,21 @@ namespace FootballLeague.Cliente
                 tabla.ClearSelection();
 
                 if (tabla.Rows.Count > 0)
-                    tabla.FirstDisplayedScrollingRowIndex = 0;
+                {
+                    try
+                    {
+                        tabla.FirstDisplayedScrollingRowIndex = 0;
+                    }
+                    catch
+                    {
+                        // Puede no haber filas visibles todavía.
+                    }
+                }
             };
 
             distribucion.Controls.Add(tabla, 0, 3);
+
+            // ESTADO
 
             estado = new Label
             {
@@ -392,7 +442,8 @@ namespace FootballLeague.Cliente
             try
             {
                 var datos =
-                    await api.ObtenerListaAsync<JsonElement>("api/Ligas");
+                    await api.ObtenerListaAsync<JsonElement>(
+                        "api/Ligas");
 
                 var opciones = datos.Select(x => new LigaOpcion
                 {
@@ -402,7 +453,8 @@ namespace FootballLeague.Cliente
 
                 selectorLiga.DataSource = opciones;
 
-                var principal = opciones.FirstOrDefault(x => x.Id == 2);
+                var principal =
+                    opciones.FirstOrDefault(x => x.Id == 2);
 
                 if (principal != null)
                     selectorLiga.SelectedItem = principal;
@@ -421,7 +473,8 @@ namespace FootballLeague.Cliente
 
         private int LigaSeleccionada()
         {
-            return (selectorLiga.SelectedItem as LigaOpcion)?.Id ?? 2;
+            return (selectorLiga.SelectedItem
+                as LigaOpcion)?.Id ?? 2;
         }
 
         private async Task MostrarSeccion(string seccion)
@@ -519,7 +572,8 @@ namespace FootballLeague.Cliente
         private async Task CargarLigas()
         {
             var datos =
-                await api.ObtenerListaAsync<JsonElement>("api/Ligas");
+                await api.ObtenerListaAsync<JsonElement>(
+                    "api/Ligas");
 
             tabla.DataSource = datos.Select(x => new
             {
@@ -533,7 +587,8 @@ namespace FootballLeague.Cliente
         private async Task CargarEquipos()
         {
             var datos =
-                await api.ObtenerListaAsync<JsonElement>("api/Equipos");
+                await api.ObtenerListaAsync<JsonElement>(
+                    "api/Equipos");
 
             tabla.DataSource = datos.Select(x => new
             {
@@ -547,7 +602,8 @@ namespace FootballLeague.Cliente
         private async Task CargarJugadores()
         {
             var datos =
-                await api.ObtenerListaAsync<JsonElement>("api/Jugadores");
+                await api.ObtenerListaAsync<JsonElement>(
+                    "api/Jugadores");
 
             tabla.DataSource = datos.Select(x => new
             {
@@ -583,21 +639,23 @@ namespace FootballLeague.Cliente
 
                 foreach (var partido in lista.EnumerateArray())
                 {
-                    bool finalizado = Booleano(partido, "finalizado");
+                    bool finalizado =
+                        Booleano(partido, "finalizado");
 
                     partidos.Add(new PartidoFila
                     {
                         Jornada = numero,
                         PartidoID = Entero(partido, "id"),
-                        Local = NombreEquipo(partido, "equipoLocal"),
-                        Visitante = NombreEquipo(partido, "equipoVisitante"),
+                        Local = NombreEquipo(
+                            partido, "equipoLocal"),
+                        Visitante = NombreEquipo(
+                            partido, "equipoVisitante"),
                         Resultado = finalizado
                             ? $"{Texto(partido, "golesLocal")} - " +
                               $"{Texto(partido, "golesVisitante")}"
                             : "Pendiente",
                         Estado = finalizado
-                            ? "Finalizado"
-                            : "Pendiente"
+                            ? "Finalizado" : "Pendiente"
                     });
                 }
             }
@@ -746,7 +804,9 @@ namespace FootballLeague.Cliente
 
                 ventana.Controls.Add(golesVisitante);
 
-                Button confirmar = CrearBoton("Guardar resultado", 170);
+                Button confirmar = CrearBoton(
+                    "Guardar resultado", 170);
+
                 confirmar.Location = new Point(125, 205);
                 confirmar.DialogResult = DialogResult.OK;
 
@@ -815,7 +875,8 @@ namespace FootballLeague.Cliente
         private static string NombreEquipo(
             JsonElement partido, string propiedad)
         {
-            if (!partido.TryGetProperty(propiedad, out var valor))
+            if (!partido.TryGetProperty(
+                propiedad, out var valor))
                 return "Equipo desconocido";
 
             if (valor.ValueKind == JsonValueKind.String)
