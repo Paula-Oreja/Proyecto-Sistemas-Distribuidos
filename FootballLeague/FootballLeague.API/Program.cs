@@ -1,15 +1,26 @@
+
+using FootballLeague.API.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Registrar los controladores de la API REST
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Configurar SQLite
+builder.Services.AddDbContext<FootballLeagueDbContext>(
+    options =>
+        options.UseSqlite(
+            builder.Configuration.GetConnectionString(
+                "FootballLeagueConnection")));
+
+// Configurar OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Activar Swagger durante el desarrollo
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
