@@ -1,84 +1,120 @@
 [
     {
-        "nombre": "Thibaut Courtois",
+        "nombre": "Courtois",
         "dorsal": 1,
         "posicion": "Portero",
         "equipoId": 1
     },
     {
-        "nombre": "Raúl Asencio",
-        "dorsal": 2,
-        "posicion": "Defensa",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Éder Militão",
-        "dorsal": 3,
-        "posicion": "Defensa",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Dean Huijsen",
-        "dorsal": 4,
-        "posicion": "Defensa",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Jude Bellingham",
-        "dorsal": 5,
-        "posicion": "Centrocampista",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Eduardo Camavinga",
-        "dorsal": 6,
-        "posicion": "Centrocampista",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Vinícius Júnior",
-        "dorsal": 7,
-        "posicion": "Delantero",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Federico Valverde",
-        "dorsal": 8,
-        "posicion": "Centrocampista",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Endrick",
-        "dorsal": 9,
-        "posicion": "Delantero",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Kylian Mbappé",
-        "dorsal": 10,
-        "posicion": "Delantero",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Rodrygo",
-        "dorsal": 11,
-        "posicion": "Delantero",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Trent Alexander-Arnold",
-        "dorsal": 12,
-        "posicion": "Defensa",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Andriy Lunin",
+        "nombre": "Lunin",
         "dorsal": 13,
         "posicion": "Portero",
         "equipoId": 1
     },
     {
-        "nombre": "Aurélien Tchouaméni",
+        "nombre": "Mestre",
+        "dorsal": 26,
+        "posicion": "Portero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Javi Navarro",
+        "dorsal": 31,
+        "posicion": "Portero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Illia Voloshyn",
+        "dorsal": 39,
+        "posicion": "Portero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Asencio",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "E. Militão",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Huijsen",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Trent",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Konaté",
+        "dorsal": 16,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Cucurella",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Á. Carreras",
+        "dorsal": 18,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Rüdiger",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "F. Mendy",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Dumfries",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Mario Rivas",
+        "dorsal": 33,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Bellingham",
+        "dorsal": 5,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Camavinga",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Valverde",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Tchouameni",
         "dorsal": 14,
         "posicion": "Centrocampista",
         "equipoId": 1
@@ -90,57 +126,63 @@
         "equipoId": 1
     },
     {
-        "nombre": "Ibrahima Konaté",
-        "dorsal": 16,
-        "posicion": "Defensa",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Marc Cucurella",
-        "dorsal": 17,
-        "posicion": "Defensa",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Álvaro Carreras",
-        "dorsal": 18,
-        "posicion": "Defensa",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Carlos Espí",
-        "dorsal": 19,
-        "posicion": "Delantero",
-        "equipoId": 1
-    },
-    {
-        "nombre": "Bernardo Silva",
+        "nombre": "Bernardo",
         "dorsal": 20,
         "posicion": "Centrocampista",
         "equipoId": 1
     },
     {
-        "nombre": "Brahim Díaz",
+        "nombre": "Brahim",
         "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Thiago",
+        "dorsal": 27,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Cestero",
+        "dorsal": 29,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Sergio",
+        "dorsal": 38,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Vini Jr.",
+        "dorsal": 7,
         "posicion": "Delantero",
         "equipoId": 1
     },
     {
-        "nombre": "Antonio Rüdiger",
-        "dorsal": 22,
-        "posicion": "Defensa",
+        "nombre": "Endrick",
+        "dorsal": 9,
+        "posicion": "Delantero",
         "equipoId": 1
     },
     {
-        "nombre": "Ferland Mendy",
-        "dorsal": 23,
-        "posicion": "Defensa",
+        "nombre": "Mbappé",
+        "dorsal": 10,
+        "posicion": "Delantero",
         "equipoId": 1
     },
     {
-        "nombre": "Denzel Dumfries",
-        "dorsal": 24,
-        "posicion": "Defensa",
+        "nombre": "Rodrygo",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "C. Espí",
+        "dorsal": 19,
+        "posicion": "Delantero",
         "equipoId": 1
     },
     {
@@ -150,9 +192,3567 @@
         "equipoId": 1
     },
     {
-        "nombre": "Thiago Pitarch",
+        "nombre": "Alexis Ciria",
+        "dorsal": 36,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Joan Garcia",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Szczesny",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Livakovic",
+        "dorsal": 25,
+        "posicion": "Portero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Eder Aller",
+        "dorsal": 31,
+        "posicion": "Portero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Iker Rodriguez",
+        "dorsal": 35,
+        "posicion": "Portero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Joao Cancelo",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Balde",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Cubarsí",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Xavi Espart",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Christensen",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Gerard Martín",
+        "dorsal": 18,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Kounde",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Eric",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Cortes",
+        "dorsal": 26,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Jordi Pesquer",
+        "dorsal": 33,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Guillem Victor",
+        "dorsal": 40,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Alex Campos",
+        "dorsal": 41,
+        "posicion": "Defensa",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Brian",
+        "dorsal": 4,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Gavi",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Fermin",
+        "dorsal": 7,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Pedri",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Rodrigo",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Roony",
+        "dorsal": 19,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Olmo",
+        "dorsal": 20,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "F. De Jong",
+        "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Bernal",
+        "dorsal": 22,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Ebrima Tunkara",
+        "dorsal": 30,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Orian Goren",
+        "dorsal": 32,
+        "posicion": "Centrocampista",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Gabriel Jesus",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Lamine Yamal",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Raphinha",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Adeyemi",
+        "dorsal": 14,
+        "posicion": "Delantero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Anthony Gordon",
+        "dorsal": 17,
+        "posicion": "Delantero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "Hamza Abdelkarim",
+        "dorsal": 29,
+        "posicion": "Delantero",
+        "equipoId": 2
+    },
+    {
+        "nombre": "J. Musso",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Oblak",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Esquivel",
+        "dorsal": 25,
+        "posicion": "Portero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Hancko",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Marc Pubill",
+        "dorsal": 18,
+        "posicion": "Defensa",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Romero",
+        "dorsal": 21,
+        "posicion": "Defensa",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Grimaldo",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Le Normand",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Domínguez",
+        "dorsal": 27,
+        "posicion": "Defensa",
+        "equipoId": 3
+    },
+    {
+        "nombre": "D. Martínez",
+        "dorsal": 30,
+        "posicion": "Defensa",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Javier Gil",
+        "dorsal": 45,
+        "posicion": "Defensa",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Obed Vargas",
+        "dorsal": 3,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Mendoza",
+        "dorsal": 4,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Johnny",
+        "dorsal": 5,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Koke",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Kang In",
+        "dorsal": 7,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Barrios",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Álex B.",
+        "dorsal": 10,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "M. Llorente",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Arnau Ortiz",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Hjulmand",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Romeo",
+        "dorsal": 26,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Castillo",
+        "dorsal": 46,
+        "posicion": "Centrocampista",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Sørloth",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Lookman",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "J.david",
+        "dorsal": 15,
+        "posicion": "Delantero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "J.alvarez",
+        "dorsal": 19,
+        "posicion": "Delantero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Giuliano",
+        "dorsal": 20,
+        "posicion": "Delantero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Cubo",
+        "dorsal": 29,
+        "posicion": "Delantero",
+        "equipoId": 3
+    },
+    {
+        "nombre": "Eriksson",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Agirrezabala",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Laro",
+        "dorsal": 31,
+        "posicion": "Portero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Mantilla",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Aaron",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Manu H.",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Iñigo",
+        "dorsal": 6,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Facu",
+        "dorsal": 16,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Salinas",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Pedro",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Belocian",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Alvaro",
+        "dorsal": 26,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Hector",
+        "dorsal": 28,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Gaby",
+        "dorsal": 39,
+        "posicion": "Defensa",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Pablo Ramón",
+        "dorsal": 5,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Almeida",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Maguette",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Prati",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Iker Luque",
+        "dorsal": 19,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Canales",
+        "dorsal": 20,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Iván Martín",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Vallecillo",
+        "dorsal": 29,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Castellanos",
+        "dorsal": 33,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Hugo",
+        "dorsal": 38,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Solorzano",
+        "dorsal": 41,
+        "posicion": "Centrocampista",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Guliashvili",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Arana",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Vicente",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Andrés",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Villalibre",
+        "dorsal": 12,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Pablo G.",
+        "dorsal": 15,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Zabiri",
+        "dorsal": 21,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Junior Bita",
+        "dorsal": 42,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Laso",
+        "dorsal": 43,
+        "posicion": "Delantero",
+        "equipoId": 4
+    },
+    {
+        "nombre": "Vivian",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Paredes",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Yeray",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Areso",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Laporte",
+        "dorsal": 14,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "H. Rincón",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Yuri",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Rego",
+        "dorsal": 20,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Monreal",
+        "dorsal": 30,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Johaneko",
+        "dorsal": 31,
+        "posicion": "Defensa",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Prados",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 5
+    },
+    {
+        "nombre": "O. Sancet",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 5
+    },
+    {
+        "nombre": "R. De Galarreta",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Jauregizar",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Navarro",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Gerenabarrena",
+        "dorsal": 24,
+        "posicion": "Centrocampista",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Selton",
+        "dorsal": 44,
+        "posicion": "Centrocampista",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Berenguer",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Williams",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Williams Jr",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Guruzeta",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Maroan",
+        "dorsal": 21,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Nico Serrano",
+        "dorsal": 22,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Djalo",
+        "dorsal": 25,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Canales",
+        "dorsal": 28,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Imga",
+        "dorsal": 33,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Vizcay",
+        "dorsal": 34,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "Conde",
+        "dorsal": 35,
+        "posicion": "Delantero",
+        "equipoId": 5
+    },
+    {
+        "nombre": "A. Remiro",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Marrero",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Fraga",
+        "dorsal": 32,
+        "posicion": "Portero",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Aramburu",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Aihen",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Zubeldia",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Jon Martín",
+        "dorsal": 6,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "J. Pacheco",
+        "dorsal": 16,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Sergio Gómez",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "M.sarr",
+        "dorsal": 19,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Odriozola",
+        "dorsal": 20,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "H. Fort",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Lebarbier",
+        "dorsal": 28,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Beitia",
+        "dorsal": 34,
+        "posicion": "Defensa",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Gorrotxa",
+        "dorsal": 4,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Barrene",
+        "dorsal": 7,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Turrientes",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Guedes",
+        "dorsal": 11,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Ochieng",
+        "dorsal": 12,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Take",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Marin",
+        "dorsal": 15,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "C.soler",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Herrera",
+        "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Zakharyan",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Sucic",
+        "dorsal": 24,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Aguirre",
+        "dorsal": 26,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Marchal",
+        "dorsal": 29,
+        "posicion": "Centrocampista",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Oskarsson",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Oyarzabal",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Carrera",
+        "dorsal": 27,
+        "posicion": "Delantero",
+        "equipoId": 6
+    },
+    {
+        "nombre": "Á.valles",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Diego Conde",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Yan",
+        "dorsal": 30,
+        "posicion": "Portero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Manu G.",
+        "dorsal": 31,
+        "posicion": "Portero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Á. De Pablo",
+        "dorsal": 40,
+        "posicion": "Portero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "A. Postigo",
+        "dorsal": 51,
+        "posicion": "Portero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Bellerín",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Llorente R.",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Natan",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Bartra",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Fran García",
+        "dorsal": 11,
+        "posicion": "Defensa",
+        "equipoId": 7
+    },
+    {
+        "nombre": "V. Gómez",
+        "dorsal": 16,
+        "posicion": "Defensa",
+        "equipoId": 7
+    },
+    {
+        "nombre": "J. Firpo",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 7
+    },
+    {
+        "nombre": "F. Bernal",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "P. Fornals",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Á. Ortiz",
+        "dorsal": 12,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Iker",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Fidalgo",
+        "dorsal": 15,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Riquelme",
+        "dorsal": 17,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "N. Deossa",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Lo Celso",
+        "dorsal": 20,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Marc Roca",
+        "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Isco",
+        "dorsal": 22,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "D. Ceballos",
+        "dorsal": 25,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Rica Fúnez",
+        "dorsal": 37,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "I. Corralejo",
+        "dorsal": 50,
+        "posicion": "Centrocampista",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Antony",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "C. Hernández",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Ez Abde",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Parrott",
+        "dorsal": 19,
+        "posicion": "Delantero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Aitor Ruibal",
+        "dorsal": 24,
+        "posicion": "Delantero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Morante",
+        "dorsal": 27,
+        "posicion": "Delantero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Rodrigo Marina",
+        "dorsal": 29,
+        "posicion": "Delantero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Borja Alonso",
+        "dorsal": 39,
+        "posicion": "Delantero",
+        "equipoId": 7
+    },
+    {
+        "nombre": "Odysseas",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Fran González",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Rafa Romero",
+        "dorsal": 33,
+        "posicion": "Portero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Iglesias",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Julio Díaz",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Kike Salas",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "A. Castrin",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Sangante",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Cardoso",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Suazo",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Carmona",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Marcao",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Manuel Ángel",
+        "dorsal": 26,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Iker Muñoz",
+        "dorsal": 34,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Tamiou K.",
+        "dorsal": 45,
+        "posicion": "Defensa",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Agoumé",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Kochorashvili",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Manu Bueno",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Guridi",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Fofana",
+        "dorsal": 24,
+        "posicion": "Centrocampista",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Nico Guillen",
         "dorsal": 27,
         "posicion": "Centrocampista",
-        "equipoId": 1
+        "equipoId": 8
+    },
+    {
+        "nombre": "Edu Altozano",
+        "dorsal": 39,
+        "posicion": "Centrocampista",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Alfon",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Robbie Ure",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Peque",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Vargas",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Isaac",
+        "dorsal": 16,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Stassin",
+        "dorsal": 19,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Felix",
+        "dorsal": 20,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Ejuke",
+        "dorsal": 21,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Jesús Cruz",
+        "dorsal": 29,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Miguel Sierra",
+        "dorsal": 30,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Ibra",
+        "dorsal": 37,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Scuri",
+        "dorsal": 46,
+        "posicion": "Delantero",
+        "equipoId": 8
+    },
+    {
+        "nombre": "Dimitrievski",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 9
+    },
+    {
+        "nombre": "C.rivero",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Van Oevelen",
+        "dorsal": 25,
+        "posicion": "Portero",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Copete",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Diakhaby",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Tárrega",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "De Haas",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Gayà",
+        "dorsal": 14,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Foulquier",
+        "dorsal": 20,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "J. Vázquez",
+        "dorsal": 21,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Arnau",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Maffeo",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Panach",
+        "dorsal": 29,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Gamón",
+        "dorsal": 31,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "I. Córdoba",
+        "dorsal": 36,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "M. Navarro",
+        "dorsal": 41,
+        "posicion": "Defensa",
+        "equipoId": 9
+    },
+    {
+        "nombre": "G. Rodriguez",
+        "dorsal": 2,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Danjuma",
+        "dorsal": 7,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Javi Guerra",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Elliott",
+        "dorsal": 10,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "L. Rioja",
+        "dorsal": 11,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Dieng",
+        "dorsal": 15,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Pepelu",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Ugrinic",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Mayol",
+        "dorsal": 33,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Jaume Durà",
+        "dorsal": 38,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Ryunosuke",
+        "dorsal": 39,
+        "posicion": "Centrocampista",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Sadiq",
+        "dorsal": 6,
+        "posicion": "Delantero",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Hugo Duro",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Raba",
+        "dorsal": 19,
+        "posicion": "Delantero",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Otorbi",
+        "dorsal": 27,
+        "posicion": "Delantero",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Aimar",
+        "dorsal": 37,
+        "posicion": "Delantero",
+        "equipoId": 9
+    },
+    {
+        "nombre": "Júnior R.",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Ruben Gomez",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Gulácsi",
+        "dorsal": 25,
+        "posicion": "Portero",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Costa",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Freeman",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Pau Navarro",
+        "dorsal": 6,
+        "posicion": "Defensa",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Foyth",
+        "dorsal": 8,
+        "posicion": "Defensa",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Renato Veiga",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Mouriño",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 10
+    },
+    {
+        "nombre": "C. Romero",
+        "dorsal": 20,
+        "posicion": "Defensa",
+        "equipoId": 10
+    },
+    {
+        "nombre": "S. Cardona",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 10
+    },
+    {
+        "nombre": "A. Diatta",
+        "dorsal": 5,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "A. Moleiro",
+        "dorsal": 10,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Santi C.v.",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Macia",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Buchanan",
+        "dorsal": 17,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Gueye",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Pepe",
+        "dorsal": 19,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Saliba",
+        "dorsal": 24,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Nizar",
+        "dorsal": 27,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "J. Gaitán",
+        "dorsal": 28,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Cheikh",
+        "dorsal": 30,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Bonafé",
+        "dorsal": 32,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Mauro",
+        "dorsal": 37,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Barrera",
+        "dorsal": 38,
+        "posicion": "Centrocampista",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Gerard",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Mikautadze",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 10
+    },
+    {
+        "nombre": "I. Akhomach",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Oluwaseyi",
+        "dorsal": 21,
+        "posicion": "Delantero",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Ayoze",
+        "dorsal": 22,
+        "posicion": "Delantero",
+        "equipoId": 10
+    },
+    {
+        "nombre": "Altay Bayindir",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Radu",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Iván Villar",
+        "dorsal": 25,
+        "posicion": "Portero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Starfelt",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "M. Alonso",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Faye",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Carreira",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Álvaro N.c.",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Javi Rueda",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Yoel Lago",
+        "dorsal": 18,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Javi Rguez",
+        "dorsal": 20,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "S. Caceres",
+        "dorsal": 21,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Ribes",
+        "dorsal": 27,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Milla",
+        "dorsal": 35,
+        "posicion": "Defensa",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Moriba",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "M. Román",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Febas",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "H. González",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Williot",
+        "dorsal": 19,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Javi Galán",
+        "dorsal": 22,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Hugo A.",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Antañon",
+        "dorsal": 28,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Burcio",
+        "dorsal": 30,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Angel Arcos",
+        "dorsal": 31,
+        "posicion": "Centrocampista",
+        "equipoId": 11
+    },
+    {
+        "nombre": "B. Iglesias",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Jutgla",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Iago Aspas",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "P. Durán",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "Driouech",
+        "dorsal": 24,
+        "posicion": "Delantero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "El-Abdellaoui",
+        "dorsal": 39,
+        "posicion": "Delantero",
+        "equipoId": 11
+    },
+    {
+        "nombre": "S. Herrera",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Aitor Fdez.",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Rafa Fdez.",
+        "dorsal": 31,
+        "posicion": "Portero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Bermejo",
+        "dorsal": 32,
+        "posicion": "Portero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Herrando",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Rico",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 12
+    },
+    {
+        "nombre": "V. Rosier",
+        "dorsal": 19,
+        "posicion": "Defensa",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Boyomo",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Catena",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Arguibide",
+        "dorsal": 27,
+        "posicion": "Defensa",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Santos",
+        "dorsal": 35,
+        "posicion": "Defensa",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Rockson",
+        "dorsal": 48,
+        "posicion": "Defensa",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Torró",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Moncayola",
+        "dorsal": 7,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Iker Muñoz",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Moi Gómez",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Moro",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Del Castillo",
+        "dorsal": 20,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Dubasin",
+        "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Abel Bretones",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Mauro",
+        "dorsal": 26,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "A. Osambela",
+        "dorsal": 29,
+        "posicion": "Centrocampista",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Raúl",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Aimar",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Kike Barja",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Rubén García",
+        "dorsal": 14,
+        "posicion": "Delantero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Budimir",
+        "dorsal": 17,
+        "posicion": "Delantero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "A. Bonel",
+        "dorsal": 30,
+        "posicion": "Delantero",
+        "equipoId": 12
+    },
+    {
+        "nombre": "Letacek",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "David Soria",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Ferrer",
+        "dorsal": 35,
+        "posicion": "Portero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Djene",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Davinchi",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Sazonov",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "A. Abqar",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Carvajal",
+        "dorsal": 14,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Boselli",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Kiko F.",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Z.romero",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "J. Ives Valou",
+        "dorsal": 26,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "B. Gassama",
+        "dorsal": 40,
+        "posicion": "Defensa",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Mario Martín",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Gudelj",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "R. Terrats",
+        "dorsal": 11,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Francho",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Uche",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Andres Garcia",
+        "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Johan Mojica",
+        "dorsal": 22,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Mangala",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Risco",
+        "dorsal": 28,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Curro",
+        "dorsal": 29,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "O. Lopez",
+        "dorsal": 30,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Moha",
+        "dorsal": 31,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "J. Martínez",
+        "dorsal": 34,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Mady M",
+        "dorsal": 39,
+        "posicion": "Centrocampista",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Juanmi",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "B. Mayoral",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Satriano",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Enes Ünal",
+        "dorsal": 19,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Ivan",
+        "dorsal": 20,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Ibra Drj",
+        "dorsal": 27,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Joselu",
+        "dorsal": 32,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "M. Achraf",
+        "dorsal": 33,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Danfakha",
+        "dorsal": 36,
+        "posicion": "Delantero",
+        "equipoId": 13
+    },
+    {
+        "nombre": "Cárdenas",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "A. Batalla",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Emil Audero",
+        "dorsal": 25,
+        "posicion": "Portero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Adrián Molina",
+        "dorsal": 30,
+        "posicion": "Portero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Andrei",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Luiz Felipe",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Mujaid",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Pedrosa",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Balliu",
+        "dorsal": 20,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Pelayo",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Lejeune",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "De Las Sias",
+        "dorsal": 26,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Lozano",
+        "dorsal": 27,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Jozhua V.",
+        "dorsal": 33,
+        "posicion": "Defensa",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Kumbulla",
+        "dorsal": 3,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Pedro Díaz",
+        "dorsal": 4,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Pathé I. Ciss",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Isi",
+        "dorsal": 7,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Unai Lopez",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Nteka",
+        "dorsal": 11,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Álvaro",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "De Frutos",
+        "dorsal": 19,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Fran Pérez",
+        "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Óscar V.",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Becerra",
+        "dorsal": 28,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "M. Román",
+        "dorsal": 31,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "G. Bouaré",
+        "dorsal": 36,
+        "posicion": "Centrocampista",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Alemâo",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Camello",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "G.tsitaishvili",
+        "dorsal": 14,
+        "posicion": "Delantero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Alonso",
+        "dorsal": 34,
+        "posicion": "Delantero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Rayane",
+        "dorsal": 37,
+        "posicion": "Delantero",
+        "equipoId": 14
+    },
+    {
+        "nombre": "Àngel Fortuño",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Dmitrovic",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Llorenç",
+        "dorsal": 31,
+        "posicion": "Portero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Gorosabel",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Quilindschy",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Urko",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Riedel",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Cabrera",
+        "dorsal": 6,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Nuñez",
+        "dorsal": 14,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Vanja",
+        "dorsal": 16,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "R. Hinojo",
+        "dorsal": 21,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "El Hilali",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Timera",
+        "dorsal": 27,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Jose Angel",
+        "dorsal": 32,
+        "posicion": "Defensa",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Puado",
+        "dorsal": 7,
+        "posicion": "Centrocampista",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Edu Expósito",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Pol Lozano",
+        "dorsal": 10,
+        "posicion": "Centrocampista",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Bryan",
+        "dorsal": 15,
+        "posicion": "Centrocampista",
+        "equipoId": 15
+    },
+    {
+        "nombre": "G. Moscardo",
+        "dorsal": 20,
+        "posicion": "Centrocampista",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Bauza",
+        "dorsal": 26,
+        "posicion": "Centrocampista",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Jan Peries",
+        "dorsal": 33,
+        "posicion": "Centrocampista",
+        "equipoId": 15
+    },
+    {
+        "nombre": "A. Santiago",
+        "dorsal": 36,
+        "posicion": "Centrocampista",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Roberto",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Pere Milla",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Jofre",
+        "dorsal": 17,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Marcos",
+        "dorsal": 18,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Kike G.",
+        "dorsal": 19,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Cala",
+        "dorsal": 22,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Dolan",
+        "dorsal": 24,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Javi H.",
+        "dorsal": 28,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Mullerat",
+        "dorsal": 29,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Makar",
+        "dorsal": 34,
+        "posicion": "Delantero",
+        "equipoId": 15
+    },
+    {
+        "nombre": "Sivera",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "A. Rodriguez",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Swiderski",
+        "dorsal": 31,
+        "posicion": "Portero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Montero",
+        "dorsal": 33,
+        "posicion": "Portero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Valentini",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Youssef",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "F. Garcés",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Ángel P.",
+        "dorsal": 7,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Novoa",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "N. Tenaglia",
+        "dorsal": 14,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Koski",
+        "dorsal": 16,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "J. Otto",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Mikel R.",
+        "dorsal": 18,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Xanet Olaiz",
+        "dorsal": 27,
+        "posicion": "Defensa",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Denis Suárez",
+        "dorsal": 4,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Guevara",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Blanco",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "C. Aleñá",
+        "dorsal": 10,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Ibáñez",
+        "dorsal": 19,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "A. Rebbach",
+        "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "C. Protesoni",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Selu Diallo",
+        "dorsal": 24,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Izei",
+        "dorsal": 29,
+        "posicion": "Centrocampista",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Mariano",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "T. Martínez",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Lucas Boyé",
+        "dorsal": 15,
+        "posicion": "Delantero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Mañas",
+        "dorsal": 20,
+        "posicion": "Delantero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "Miguel",
+        "dorsal": 22,
+        "posicion": "Delantero",
+        "equipoId": 16
+    },
+    {
+        "nombre": "P. Campos",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Ryan",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "A. Primo",
+        "dorsal": 32,
+        "posicion": "Portero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Ihor Galdin",
+        "dorsal": 36,
+        "posicion": "Portero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Mandi",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Ndukwe",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Dela",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Cabello",
+        "dorsal": 14,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Víctor G.",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Toljan",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Manu Sánchez",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Nacho Perez",
+        "dorsal": 29,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Marc Santos",
+        "dorsal": 33,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Huseini",
+        "dorsal": 35,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "A. Moya",
+        "dorsal": 39,
+        "posicion": "Defensa",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Hugo Sotelo",
+        "dorsal": 5,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Requena",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Olasagasti",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Axel Tape",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Enzo Bardeli",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "O. Rey",
+        "dorsal": 20,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Thiago",
+        "dorsal": 24,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "P. Cortes",
+        "dorsal": 27,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Manel Usedo",
+        "dorsal": 34,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Calatrava",
+        "dorsal": 38,
+        "posicion": "Centrocampista",
+        "equipoId": 17
+    },
+    {
+        "nombre": "R. Brugué",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "I. Romero",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Petar Ratkov",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Yanis Musuayi",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Etta Eyong",
+        "dorsal": 21,
+        "posicion": "Delantero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "Luismi Perez",
+        "dorsal": 26,
+        "posicion": "Delantero",
+        "equipoId": 17
+    },
+    {
+        "nombre": "M. Dituro",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 18
+    },
+    {
+        "nombre": "A. Iturbe",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 18
+    },
+    {
+        "nombre": "B. Sangare",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Revivo",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Diaby",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 18
+    },
+    {
+        "nombre": "R.p. Bigas",
+        "dorsal": 6,
+        "posicion": "Defensa",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Kevin J.",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Victor Chust",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 18
+    },
+    {
+        "nombre": "M. Baržić",
+        "dorsal": 26,
+        "posicion": "Defensa",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Redondo",
+        "dorsal": 5,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Santiago",
+        "dorsal": 7,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "M. Aguado",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Buonanotte",
+        "dorsal": 10,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Germán V.",
+        "dorsal": 11,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "G. Villar",
+        "dorsal": 12,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "M. Neto",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Josan",
+        "dorsal": 17,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Lemar",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Diang",
+        "dorsal": 19,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "T. Morente",
+        "dorsal": 20,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Rubén S.",
+        "dorsal": 22,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Adam B.",
+        "dorsal": 27,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Padilla",
+        "dorsal": 30,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Morcillo",
+        "dorsal": 47,
+        "posicion": "Centrocampista",
+        "equipoId": 18
+    },
+    {
+        "nombre": "E. Ponce",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 18
+    },
+    {
+        "nombre": "F. Niño",
+        "dorsal": 14,
+        "posicion": "Delantero",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Cepeda",
+        "dorsal": 21,
+        "posicion": "Delantero",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Osorio",
+        "dorsal": 24,
+        "posicion": "Delantero",
+        "equipoId": 18
+    },
+    {
+        "nombre": "Ali Houary",
+        "dorsal": 29,
+        "posicion": "Delantero",
+        "equipoId": 18
+    },
+    {
+        "nombre": "N. Al-Lal",
+        "dorsal": 33,
+        "posicion": "Delantero",
+        "equipoId": 18
+    },
+    {
+        "nombre": "A. Herrero",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Carlos Lopez",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Andrés",
+        "dorsal": 30,
+        "posicion": "Portero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "C. Puga",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Einar",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Pastor",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Salinas",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Recio",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Murillo",
+        "dorsal": 16,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "F. Calero",
+        "dorsal": 20,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "J. Berrocal",
+        "dorsal": 25,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Óscar",
+        "dorsal": 26,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Rafita",
+        "dorsal": 31,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Aznou",
+        "dorsal": 39,
+        "posicion": "Defensa",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Cajuste",
+        "dorsal": 2,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Ramon",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Dotor",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "D. Larrubia",
+        "dorsal": 10,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Rafa R.",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Martínez",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Cruz",
+        "dorsal": 19,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Dani Lorenzo",
+        "dorsal": 22,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Izan M.",
+        "dorsal": 23,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Otu Jr",
+        "dorsal": 28,
+        "posicion": "Centrocampista",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Haitam",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Chupe",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Joaquín",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Jauregi",
+        "dorsal": 17,
+        "posicion": "Delantero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Niño",
+        "dorsal": 21,
+        "posicion": "Delantero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Juani",
+        "dorsal": 32,
+        "posicion": "Delantero",
+        "equipoId": 19
+    },
+    {
+        "nombre": "Germán",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Leo Román",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "A. Ferllo",
+        "dorsal": 25,
+        "posicion": "Portero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "A. Alti",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Comas",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Noubi",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Dani Barcia",
+        "dorsal": 5,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Quagliata",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "M. Loureiro",
+        "dorsal": 15,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Angeliño",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "J. M. Giménez",
+        "dorsal": 20,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Ede",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "X. Navarro",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 20
+    },
+    {
+        "nombre": "M. Casadó",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "D. Villares",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Yeremay",
+        "dorsal": 10,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Mella",
+        "dorsal": 11,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Riki",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Amatucci",
+        "dorsal": 16,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Asp - Jensen",
+        "dorsal": 18,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Mario S.",
+        "dorsal": 21,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Rubén López",
+        "dorsal": 35,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Yayo",
+        "dorsal": 36,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Noé",
+        "dorsal": 37,
+        "posicion": "Centrocampista",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Aubameyang",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Eddahchouri",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Luismi Cruz",
+        "dorsal": 19,
+        "posicion": "Delantero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Adama",
+        "dorsal": 24,
+        "posicion": "Delantero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Martín",
+        "dorsal": 31,
+        "posicion": "Delantero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Nsongo Bil",
+        "dorsal": 32,
+        "posicion": "Delantero",
+        "equipoId": 20
+    },
+    {
+        "nombre": "Kevin",
+        "dorsal": 33,
+        "posicion": "Delantero",
+        "equipoId": 20
     }
 ]

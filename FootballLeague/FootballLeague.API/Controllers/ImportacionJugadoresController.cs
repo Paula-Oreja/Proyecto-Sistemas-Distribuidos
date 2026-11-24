@@ -1,5 +1,4 @@
-﻿
-using FootballLeague.API.Data;
+﻿using FootballLeague.API.Data;
 using FootballLeague.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -36,13 +35,19 @@ namespace FootballLeague.API.Controllers
                 .ToListAsync();
 
             int anadidos = 0;
+            int actualizados = 0;
+            int sinCambios = 0;
             int omitidos = 0;
 
             var incidencias = new List<string>();
 
+            var dorsalesProcesados =
+                new HashSet<(int EquipoId, int Dorsal)>();
+
             foreach (var datos in jugadores)
             {
-                if (string.IsNullOrWhiteSpace(datos.Nombre) ||
+                if (datos == null ||
+                    string.IsNullOrWhiteSpace(datos.Nombre) ||
                     string.IsNullOrWhiteSpace(datos.Posicion) ||
                     datos.Dorsal < 1 ||
                     datos.Dorsal > 99)
@@ -50,10 +55,13 @@ namespace FootballLeague.API.Controllers
                     omitidos++;
 
                     incidencias.Add(
-                        $"Datos incorrectos: {datos.Nombre}");
+                        $"Datos incorrectos: {datos?.Nombre}");
 
                     continue;
                 }
+
+                string nombre = datos.Nombre.Trim();
+                string posicion = datos.Posicion.Trim();
 
                 var equipo = equipos.FirstOrDefault(
                     e => e.Id == datos.EquipoId);
@@ -68,45 +76,69 @@ namespace FootballLeague.API.Controllers
                     continue;
                 }
 
-                bool jugadorExiste = existentes.Any(j =>
-                    j.EquipoId == datos.EquipoId &&
-                    string.Equals(
-                        j.Nombre.Trim(),
-                        datos.Nombre.Trim(),
-                        StringComparison.OrdinalIgnoreCase));
-
-                if (jugadorExiste)
+                if (!dorsalesProcesados.Add(
+                    (datos.EquipoId, datos.Dorsal)))
                 {
                     omitidos++;
 
                     incidencias.Add(
-                        $"Jugador existente: {datos.Nombre}");
+                        $"Dorsal duplicado en el JSON: " +
+                        $"{equipo.Nombre} - {datos.Dorsal}");
 
                     continue;
                 }
 
-                bool dorsalOcupado = existentes.Any(j =>
+                var jugadorExistente = existentes.FirstOrDefault(j =>
                     j.EquipoId == datos.EquipoId &&
                     j.Dorsal == datos.Dorsal);
 
-                if (dorsalOcupado)
+                bool nombreDuplicado = existentes.Any(j =>
+                    j.EquipoId == datos.EquipoId &&
+                    j.Dorsal != datos.Dorsal &&
+                    string.Equals(
+                        j.Nombre.Trim(),
+                        nombre,
+                        StringComparison.OrdinalIgnoreCase));
+
+                if (nombreDuplicado)
                 {
                     omitidos++;
 
                     incidencias.Add(
-                        $"Dorsal ocupado: {datos.Nombre} - " +
-                        $"{equipo.Nombre} - {datos.Dorsal}");
+                        $"Jugador con otro dorsal: " +
+                        $"{nombre} - {equipo.Nombre}");
+
+                    continue;
+                }
+
+                if (jugadorExistente != null)
+                {
+                    bool hayCambios =
+                        jugadorExistente.Nombre != nombre ||
+                        jugadorExistente.Posicion != posicion;
+
+                    if (hayCambios)
+                    {
+                        jugadorExistente.Nombre = nombre;
+                        jugadorExistente.Posicion = posicion;
+
+                        actualizados++;
+                    }
+                    else
+                    {
+                        sinCambios++;
+                    }
 
                     continue;
                 }
 
                 var jugador = new Jugador
                 {
-                    Nombre = datos.Nombre.Trim(),
+                    Nombre = nombre,
 
                     Dorsal = datos.Dorsal,
 
-                    Posicion = datos.Posicion.Trim(),
+                    Posicion = posicion,
 
                     EquipoId = datos.EquipoId
                 };
@@ -131,13 +163,19 @@ namespace FootballLeague.API.Controllers
 
             return Ok(new
             {
-                Mensaje = "Importación completada.",
+                Mensaje = "Importación completada correctamente.",
 
                 Recibidos = jugadores.Count,
 
                 Anadidos = anadidos,
 
+                Actualizados = actualizados,
+
+                SinCambios = sinCambios,
+
                 Omitidos = omitidos,
+
+                TotalJugadores = await _context.Jugadores.CountAsync(),
 
                 Incidencias = incidencias
             });
