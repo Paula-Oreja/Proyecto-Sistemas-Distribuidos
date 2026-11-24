@@ -13,11 +13,18 @@ namespace FootballLeague.Cliente
         private readonly Dictionary<string, int> idsEscudos =
             new(StringComparer.OrdinalIgnoreCase);
 
+        private readonly Font fuenteNegrita =
+            new("Segoe UI", 10, FontStyle.Bold);
+
+        private bool actualizandoInicio;
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
             tabla.CellPainting += PintarEscudos;
+            tabla.CellFormatting += AplicarColores;
+
             tabla.DataBindingComplete += (_, _) =>
             {
                 AjustarColumnasEscudos();
@@ -27,6 +34,8 @@ namespace FootballLeague.Cliente
             {
                 MostrarEscudosInicio();
             };
+
+            MejorarFiltroJugadores();
         }
 
         protected override async void OnShown(EventArgs e)
@@ -42,7 +51,8 @@ namespace FootballLeague.Cliente
                     int id = Entero(equipo, "id");
                     string nombre = Texto(equipo, "nombre");
 
-                    if (id > 0 && !string.IsNullOrWhiteSpace(nombre))
+                    if (id > 0 &&
+                        !string.IsNullOrWhiteSpace(nombre))
                     {
                         idsEscudos[nombre] = id;
                     }
@@ -50,27 +60,38 @@ namespace FootballLeague.Cliente
             }
             catch
             {
-                // La aplicación seguirá funcionando
+                // La aplicación continuará funcionando
                 // aunque no se puedan cargar los escudos.
             }
+
+            if (IsDisposed)
+                return;
 
             base.OnShown(e);
 
             tabla.Invalidate();
         }
 
+        // CARGAR ESCUDOS
+
         private Image? ObtenerEscudo(string nombre)
         {
-            if (!idsEscudos.TryGetValue(nombre.Trim(), out int id))
+            if (!idsEscudos.TryGetValue(
+                nombre.Trim(), out int id))
+            {
                 return null;
+            }
 
             return ObtenerEscudoPorId(id);
         }
 
         private Image? ObtenerEscudoPorId(int id)
         {
-            if (imagenesEscudos.TryGetValue(id, out Image? imagen))
+            if (imagenesEscudos.TryGetValue(
+                id, out Image? imagen))
+            {
                 return imagen;
+            }
 
             string ruta = Path.Combine(
                 AppContext.BaseDirectory,
@@ -97,8 +118,43 @@ namespace FootballLeague.Cliente
             }
         }
 
+        // MEJORAR FILTRO DE JUGADORES
+
+        private void MejorarFiltroJugadores()
+        {
+            foreach (Control control in barraFiltro.Controls)
+            {
+                if (control is Label etiqueta)
+                {
+                    etiqueta.Text = "Filtrar por equipo:";
+                    etiqueta.Width = 185;
+                    etiqueta.Height = 35;
+                    etiqueta.AutoEllipsis = false;
+
+                    etiqueta.Font = new Font(
+                        "Segoe UI", 10, FontStyle.Bold);
+
+                    etiqueta.TextAlign =
+                        ContentAlignment.MiddleLeft;
+                }
+            }
+
+            selectorEquipo.Width = 320;
+        }
+
+        // AJUSTAR COLUMNAS
+
         private void AjustarColumnasEscudos()
         {
+            tabla.ColumnHeadersDefaultCellStyle.WrapMode =
+                DataGridViewTriState.False;
+
+            foreach (DataGridViewColumn columna in tabla.Columns)
+            {
+                columna.DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleLeft;
+            }
+
             foreach (string nombre in new[]
             {
                 "Equipo",
@@ -113,28 +169,260 @@ namespace FootballLeague.Cliente
                 }
             }
 
+            if (tabla.Columns.Contains("ID") &&
+                seccionActual == "Equipos")
+            {
+                var columna = tabla.Columns["ID"]!;
+
+                columna.MinimumWidth = 55;
+                columna.FillWeight = 30;
+
+                columna.DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            if (seccionActual == "Equipos")
+            {
+                if (tabla.Columns.Contains("Equipo"))
+                {
+                    tabla.Columns["Equipo"]!.FillWeight = 180;
+                }
+
+                if (tabla.Columns.Contains("Ciudad"))
+                {
+                    tabla.Columns["Ciudad"]!.MinimumWidth = 140;
+                    tabla.Columns["Ciudad"]!.FillWeight = 100;
+                }
+
+                if (tabla.Columns.Contains("Estadio"))
+                {
+                    tabla.Columns["Estadio"]!.MinimumWidth = 180;
+                    tabla.Columns["Estadio"]!.FillWeight = 150;
+                }
+            }
+
             if (tabla.Columns.Contains("Resultado"))
             {
-                tabla.Columns["Resultado"]!.MinimumWidth = 115;
-                tabla.Columns["Resultado"]!.FillWeight = 110;
+                var columna = tabla.Columns["Resultado"]!;
+
+                columna.MinimumWidth = 115;
+                columna.FillWeight = 110;
+
+                columna.DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
             }
 
             if (tabla.Columns.Contains("Estado"))
             {
-                tabla.Columns["Estado"]!.MinimumWidth = 110;
-                tabla.Columns["Estado"]!.FillWeight = 110;
+                var columna = tabla.Columns["Estado"]!;
+
+                columna.MinimumWidth = 115;
+                columna.FillWeight = 110;
+
+                columna.DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
             }
 
             if (tabla.Columns.Contains("PartidoID"))
             {
-                tabla.Columns["PartidoID"]!.MinimumWidth = 95;
+                var columna = tabla.Columns["PartidoID"]!;
+
+                columna.HeaderText = "ID Partido";
+                columna.MinimumWidth = 115;
+                columna.FillWeight = 85;
+
+                columna.DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
             }
 
             if (tabla.Columns.Contains("Jornada"))
             {
-                tabla.Columns["Jornada"]!.MinimumWidth = 85;
+                var columna = tabla.Columns["Jornada"]!;
+
+                columna.MinimumWidth = 85;
+                columna.FillWeight = 65;
+
+                columna.DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            if (tabla.Columns.Contains("Dorsal"))
+            {
+                var columna = tabla.Columns["Dorsal"]!;
+
+                columna.MinimumWidth = 80;
+                columna.FillWeight = 65;
+
+                columna.DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            if (seccionActual == "Clasificación")
+            {
+                foreach (string nombre in new[]
+                {
+                    "Pos", "PJ", "PG", "PE", "PP",
+                    "GF", "GC", "DG", "Puntos"
+                })
+                {
+                    if (!tabla.Columns.Contains(nombre))
+                        continue;
+
+                    var columna = tabla.Columns[nombre]!;
+
+                    columna.MinimumWidth =
+                        nombre == "Puntos" ? 80 : 55;
+
+                    columna.FillWeight =
+                        nombre == "Puntos" ? 80 : 55;
+
+                    columna.DefaultCellStyle.Alignment =
+                        DataGridViewContentAlignment.MiddleCenter;
+
+                    columna.HeaderCell.Style.Alignment =
+                        DataGridViewContentAlignment.MiddleCenter;
+                }
             }
         }
+
+        // COLORES DE CLASIFICACIÓN Y RESULTADOS
+
+        private void AplicarColores(
+            object? sender,
+            DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            string columna =
+                tabla.Columns[e.ColumnIndex].Name;
+
+            if (seccionActual == "Clasificación")
+            {
+                if (columna == "Pos" &&
+                    int.TryParse(
+                        e.Value?.ToString(), out int posicion))
+                {
+                    e.CellStyle.Font = fuenteNegrita;
+
+                    if (posicion >= 1 && posicion <= 4)
+                    {
+                        // CHAMPIONS LEAGUE
+
+                        e.CellStyle.BackColor =
+                            Color.FromArgb(219, 234, 254);
+
+                        e.CellStyle.ForeColor =
+                            Color.FromArgb(29, 78, 216);
+                    }
+                    else if (posicion == 5 || posicion == 6)
+                    {
+                        // EUROPA LEAGUE
+
+                        e.CellStyle.BackColor =
+                            Color.FromArgb(255, 237, 213);
+
+                        e.CellStyle.ForeColor =
+                            Color.FromArgb(154, 52, 18);
+                    }
+                    else if (posicion == 7)
+                    {
+                        // CONFERENCE LEAGUE
+
+                        e.CellStyle.BackColor =
+                            Color.FromArgb(220, 252, 231);
+
+                        e.CellStyle.ForeColor =
+                            Color.FromArgb(22, 101, 52);
+                    }
+                    else if (posicion >= 18)
+                    {
+                        // DESCENSO
+
+                        e.CellStyle.BackColor =
+                            Color.FromArgb(254, 226, 226);
+
+                        e.CellStyle.ForeColor =
+                            Color.FromArgb(185, 28, 28);
+                    }
+                    else
+                    {
+                        e.CellStyle.BackColor =
+                            e.RowIndex % 2 == 0
+                            ? Color.White
+                            : Color.FromArgb(241, 245, 250);
+
+                        e.CellStyle.ForeColor = azul;
+                    }
+
+                    e.CellStyle.SelectionBackColor =
+                        e.CellStyle.BackColor;
+
+                    e.CellStyle.SelectionForeColor =
+                        e.CellStyle.ForeColor;
+                }
+
+                if (columna == "Puntos")
+                {
+                    e.CellStyle.Font = fuenteNegrita;
+
+                    e.CellStyle.ForeColor = azul;
+
+                    e.CellStyle.BackColor =
+                        Color.FromArgb(226, 232, 240);
+                }
+            }
+
+            if (seccionActual == "Calendario" ||
+                seccionActual == "Resultados")
+            {
+                string valor = e.Value?.ToString() ?? "";
+
+                if (columna == "Estado")
+                {
+                    e.CellStyle.Font = fuenteNegrita;
+
+                    if (valor == "Finalizado")
+                    {
+                        e.CellStyle.BackColor =
+                            Color.FromArgb(220, 252, 231);
+
+                        e.CellStyle.ForeColor =
+                            Color.FromArgb(22, 101, 52);
+                    }
+                    else if (valor == "Pendiente")
+                    {
+                        e.CellStyle.BackColor =
+                            Color.FromArgb(255, 237, 213);
+
+                        e.CellStyle.ForeColor =
+                            Color.FromArgb(154, 52, 18);
+                    }
+
+                    e.CellStyle.SelectionBackColor =
+                        e.CellStyle.BackColor;
+
+                    e.CellStyle.SelectionForeColor =
+                        e.CellStyle.ForeColor;
+                }
+
+                if (columna == "Resultado")
+                {
+                    if (valor == "Pendiente")
+                    {
+                        e.CellStyle.ForeColor =
+                            Color.FromArgb(100, 116, 139);
+                    }
+                    else
+                    {
+                        e.CellStyle.Font = fuenteNegrita;
+                        e.CellStyle.ForeColor = azul;
+                    }
+                }
+            }
+        }
+
+        // MOSTRAR ESCUDOS EN LAS TABLAS
 
         private void PintarEscudos(
             object? sender,
@@ -143,7 +431,8 @@ namespace FootballLeague.Cliente
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            string columna = tabla.Columns[e.ColumnIndex].Name;
+            string columna =
+                tabla.Columns[e.ColumnIndex].Name;
 
             if (columna != "Equipo" &&
                 columna != "Local" &&
@@ -152,7 +441,8 @@ namespace FootballLeague.Cliente
                 return;
             }
 
-            string nombre = e.FormattedValue?.ToString() ?? "";
+            string nombre =
+                e.FormattedValue?.ToString() ?? "";
 
             Image? escudo = ObtenerEscudo(nombre);
 
@@ -163,29 +453,34 @@ namespace FootballLeague.Cliente
                 object? valor =
                     tabla.Rows[e.RowIndex].Cells["ID"].Value;
 
-                if (int.TryParse(valor?.ToString(), out int id))
+                if (int.TryParse(
+                    valor?.ToString(), out int id))
+                {
                     escudo = ObtenerEscudoPorId(id);
+                }
             }
 
             if (columna == "Equipo" &&
                 tabla.Rows[e.RowIndex].DataBoundItem
                     is JugadorFila jugador)
             {
-                escudo = ObtenerEscudoPorId(jugador.EquipoId);
+                escudo =
+                    ObtenerEscudoPorId(jugador.EquipoId);
             }
 
             if (escudo == null || e.Graphics == null)
+                return;
+
+            int tamano = Math.Min(
+                28, e.CellBounds.Height - 8);
+
+            if (tamano <= 0)
                 return;
 
             e.Paint(
                 e.CellBounds,
                 e.PaintParts &
                 ~DataGridViewPaintParts.ContentForeground);
-
-            int tamano = Math.Min(28, e.CellBounds.Height - 8);
-
-            if (tamano <= 0)
-                return;
 
             int x = e.CellBounds.Left + 8;
 
@@ -206,8 +501,8 @@ namespace FootballLeague.Cliente
                 e.CellBounds.Height);
 
             bool seleccionado =
-                (e.State & DataGridViewElementStates.Selected)
-                    != 0;
+                (e.State &
+                DataGridViewElementStates.Selected) != 0;
 
             Color colorTexto = seleccionado
                 ? e.CellStyle.SelectionForeColor
@@ -228,11 +523,16 @@ namespace FootballLeague.Cliente
             e.Handled = true;
         }
 
+        // DIBUJAR ESCUDOS SIN DEFORMARLOS
+
         private static void DibujarEscudo(
             Graphics graphics,
             Image imagen,
             Rectangle espacio)
         {
+            if (espacio.Width <= 0 || espacio.Height <= 0)
+                return;
+
             float escala = Math.Min(
                 (float)espacio.Width / imagen.Width,
                 (float)espacio.Height / imagen.Height);
@@ -262,80 +562,229 @@ namespace FootballLeague.Cliente
             graphics.InterpolationMode = modoAnterior;
         }
 
+        // MEJORAR RESULTADO DESTACADO DE INICIO
+
         private void MostrarEscudosInicio()
         {
-            foreach (Control control in inicio.Controls)
+            if (actualizandoInicio)
+                return;
+
+            actualizandoInicio = true;
+
+            try
             {
-                if (control is not TableLayoutPanel panel)
-                    continue;
-
-                foreach (Control elemento in panel.Controls)
+                foreach (Control control in
+                    inicio.Controls.Cast<Control>().ToArray())
                 {
-                    if (elemento is not Label etiqueta)
+                    if (control is not TableLayoutPanel panel)
                         continue;
 
-                    if (!etiqueta.Text.StartsWith(
-                        "Resultado de ejemplo de la liga:"))
+                    foreach (Control elemento in
+                        panel.Controls.Cast<Control>().ToArray())
                     {
-                        continue;
+                        if (elemento is not Label etiqueta)
+                            continue;
+
+                        const string prefijo =
+                            "Resultado de ejemplo de la liga:";
+
+                        if (!etiqueta.Text.StartsWith(prefijo))
+                            continue;
+
+                        string texto = etiqueta.Text
+                            .Substring(prefijo.Length)
+                            .Trim();
+
+                        var coincidencia =
+                            System.Text.RegularExpressions.Regex.Match(
+                                texto,
+                                @"^(.+?)\s+(\d+)\s*-\s*(\d+)\s+(.+)$");
+
+                        if (!coincidencia.Success)
+                            continue;
+
+                        string nombreLocal =
+                            coincidencia.Groups[1].Value.Trim();
+
+                        string golesLocal =
+                            coincidencia.Groups[2].Value;
+
+                        string golesVisitante =
+                            coincidencia.Groups[3].Value;
+
+                        string nombreVisitante =
+                            coincidencia.Groups[4].Value.Trim();
+
+                        Image? local =
+                            ObtenerEscudo(nombreLocal);
+
+                        Image? visitante =
+                            ObtenerEscudo(nombreVisitante);
+
+                        int fila = panel.GetRow(etiqueta);
+
+                        panel.SuspendLayout();
+
+                        try
+                        {
+                            panel.Controls.Remove(etiqueta);
+                            etiqueta.Dispose();
+
+                            panel.Height = 490;
+
+                            panel.RowStyles[fila].Height = 160;
+
+                            var tarjeta = new TableLayoutPanel
+                            {
+                                Dock = DockStyle.Fill,
+                                BackColor = Color.White,
+                                ColumnCount = 3,
+                                RowCount = 2,
+                                Margin = new Padding(5, 5, 12, 8),
+                                Padding = new Padding(10)
+                            };
+
+                            tarjeta.ColumnStyles.Add(
+                                new ColumnStyle(
+                                    SizeType.Percent, 40));
+
+                            tarjeta.ColumnStyles.Add(
+                                new ColumnStyle(
+                                    SizeType.Percent, 20));
+
+                            tarjeta.ColumnStyles.Add(
+                                new ColumnStyle(
+                                    SizeType.Percent, 40));
+
+                            tarjeta.RowStyles.Add(
+                                new RowStyle(
+                                    SizeType.Absolute, 28));
+
+                            tarjeta.RowStyles.Add(
+                                new RowStyle(
+                                    SizeType.Percent, 100));
+
+                            Label encabezado = new()
+                            {
+                                Text = "RESULTADO DESTACADO",
+                                Dock = DockStyle.Fill,
+                                ForeColor = Color.DimGray,
+                                Font = new Font(
+                                    "Segoe UI", 10,
+                                    FontStyle.Bold),
+                                TextAlign =
+                                    ContentAlignment.MiddleCenter
+                            };
+
+                            tarjeta.Controls.Add(
+                                encabezado, 0, 0);
+
+                            tarjeta.SetColumnSpan(encabezado, 3);
+
+                            tarjeta.Controls.Add(
+                                CrearTarjetaEquipo(
+                                    nombreLocal, local),
+                                0, 1);
+
+                            Label marcador = new()
+                            {
+                                Text =
+                                    $"{golesLocal} - {golesVisitante}",
+
+                                Dock = DockStyle.Fill,
+
+                                Font = new Font(
+                                    "Segoe UI", 30,
+                                    FontStyle.Bold),
+
+                                ForeColor = azul,
+
+                                TextAlign =
+                                    ContentAlignment.MiddleCenter
+                            };
+
+                            tarjeta.Controls.Add(
+                                marcador, 1, 1);
+
+                            tarjeta.Controls.Add(
+                                CrearTarjetaEquipo(
+                                    nombreVisitante, visitante),
+                                2, 1);
+
+                            panel.Controls.Add(tarjeta, 0, fila);
+
+                            panel.SetColumnSpan(tarjeta, 2);
+                        }
+                        finally
+                        {
+                            panel.ResumeLayout(true);
+                        }
                     }
-
-                    if (etiqueta.Tag is string marca &&
-                        marca == "EscudosConfigurados")
-                    {
-                        continue;
-                    }
-
-                    string texto = etiqueta.Text;
-
-                    var nombres = idsEscudos.Keys
-                        .Where(nombre => texto.Contains(
-                            nombre,
-                            StringComparison.OrdinalIgnoreCase))
-                        .OrderByDescending(nombre => nombre.Length)
-                        .Take(2)
-                        .OrderBy(nombre => texto.IndexOf(
-                            nombre,
-                            StringComparison.OrdinalIgnoreCase))
-                        .ToList();
-
-                    if (nombres.Count != 2)
-                        continue;
-
-                    Image? local = ObtenerEscudo(nombres[0]);
-                    Image? visitante = ObtenerEscudo(nombres[1]);
-
-                    if (local == null || visitante == null)
-                        continue;
-
-                    etiqueta.Tag = "EscudosConfigurados";
-
-                    etiqueta.Padding =
-                        new Padding(65, 5, 65, 5);
-
-                    etiqueta.Paint += (_, e) =>
-                    {
-                        int y = (etiqueta.Height - 44) / 2;
-
-                        DibujarEscudo(
-                            e.Graphics,
-                            local,
-                            new Rectangle(10, y, 44, 44));
-
-                        DibujarEscudo(
-                            e.Graphics,
-                            visitante,
-                            new Rectangle(
-                                etiqueta.Width - 54,
-                                y,
-                                44,
-                                44));
-                    };
-
-                    etiqueta.Invalidate();
                 }
             }
+            finally
+            {
+                actualizandoInicio = false;
+            }
         }
+
+        // TARJETA DE EQUIPO DEL MARCADOR
+
+        private Control CrearTarjetaEquipo(
+            string nombre,
+            Image? escudo)
+        {
+            TableLayoutPanel equipo = new()
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 2,
+                BackColor = Color.White
+            };
+
+            equipo.ColumnStyles.Add(
+                new ColumnStyle(
+                    SizeType.Percent, 100));
+
+            equipo.RowStyles.Add(
+                new RowStyle(
+                    SizeType.Percent, 100));
+
+            equipo.RowStyles.Add(
+                new RowStyle(
+                    SizeType.Absolute, 30));
+
+            PictureBox imagen = new()
+            {
+                Image = escudo,
+                Dock = DockStyle.Fill,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Margin = new Padding(8)
+            };
+
+            Label etiqueta = new()
+            {
+                Text = nombre,
+                Dock = DockStyle.Fill,
+
+                Font = new Font(
+                    "Segoe UI", 12, FontStyle.Bold),
+
+                ForeColor = azul,
+
+                TextAlign =
+                    ContentAlignment.MiddleCenter,
+
+                AutoEllipsis = true
+            };
+
+            equipo.Controls.Add(imagen, 0, 0);
+            equipo.Controls.Add(etiqueta, 0, 1);
+
+            return equipo;
+        }
+
+        // LIBERAR RECURSOS AL CERRAR
 
         protected override void OnFormClosed(
             FormClosedEventArgs e)
@@ -348,6 +797,8 @@ namespace FootballLeague.Cliente
             }
 
             imagenesEscudos.Clear();
+
+            fuenteNegrita.Dispose();
         }
     }
 }
