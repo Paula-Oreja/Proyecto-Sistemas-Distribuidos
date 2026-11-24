@@ -1,0 +1,158 @@
+[
+    {
+        "nombre": "Thibaut Courtois",
+        "dorsal": 1,
+        "posicion": "Portero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Raúl Asencio",
+        "dorsal": 2,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Éder Militão",
+        "dorsal": 3,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Dean Huijsen",
+        "dorsal": 4,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Jude Bellingham",
+        "dorsal": 5,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Eduardo Camavinga",
+        "dorsal": 6,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Vinícius Júnior",
+        "dorsal": 7,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Federico Valverde",
+        "dorsal": 8,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Endrick",
+        "dorsal": 9,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Kylian Mbappé",
+        "dorsal": 10,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Rodrygo",
+        "dorsal": 11,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Trent Alexander-Arnold",
+        "dorsal": 12,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Andriy Lunin",
+        "dorsal": 13,
+        "posicion": "Portero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Aurélien Tchouaméni",
+        "dorsal": 14,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Arda Güler",
+        "dorsal": 15,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Ibrahima Konaté",
+        "dorsal": 16,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Marc Cucurella",
+        "dorsal": 17,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Álvaro Carreras",
+        "dorsal": 18,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Carlos Espí",
+        "dorsal": 19,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Bernardo Silva",
+        "dorsal": 20,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Brahim Díaz",
+        "dorsal": 21,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Antonio Rüdiger",
+        "dorsal": 22,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Ferland Mendy",
+        "dorsal": 23,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Denzel Dumfries",
+        "dorsal": 24,
+        "posicion": "Defensa",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Yan Diomande",
+        "dorsal": 25,
+        "posicion": "Delantero",
+        "equipoId": 1
+    },
+    {
+        "nombre": "Thiago Pitarch",
+        "dorsal": 27,
+        "posicion": "Centrocampista",
+        "equipoId": 1
+    }
+]
