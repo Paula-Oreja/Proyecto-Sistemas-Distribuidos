@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "athletic-club-bilbao",
+    "name": "Athletic Club Bilbao",
+    "filename": "athletic-club-bilbao-logo-footylogos.png",
+    "sha256": "55f16c93b68aba617219c92bbf3646c91d974825c1db4dd3ce0cb922f35cab76"
+  },
+  {
+    "slug": "atletico-madrid",
+    "name": "Atletico Madrid",
+    "filename": "atletico-madrid-logo-footylogos.png",
+    "sha256": "61435f8a1f43793e4eb1c330d848a55017224364af029dfae69b28f34d14e087"
+  },
+  {
+    "slug": "celta-vigo",
+    "name": "Celta Vigo",
+    "filename": "celta-vigo-logo-footylogos.png",
+    "sha256": "fb4f9aea19362b59285e48882954c729ab27d66cc6fc5d63c5f6655dce5c2417"
+  },
+  {
+    "slug": "deportivo-alaves",
+    "name": "Deportivo Alaves",
+    "filename": "deportivo-alaves-logo-footylogos.png",
+    "sha256": "91e45c46abab1427a5142591fa7f2173573b6cf4fadfe96b6dd90749312493b3"
+  },
+  {
+    "slug": "elche-cf",
+    "name": "Elche CF",
+    "filename": "elche-cf-logo-footylogos.png",
+    "sha256": "0928b5f264db266a66cde70b36485cc577eccd520f592c331ccdc45604941464"
+  },
+  {
+    "slug": "fc-barcelona",
+    "name": "FC Barcelona",
+    "filename": "fc-barcelona-logo-footylogos.png",
+    "sha256": "1d380a9df685ec54fcfac2dda83b5702869dd9aaf160f8c9f9d4b70e21a39991"
+  },
+  {
+    "slug": "getafe-cf",
+    "name": "Getafe C.F",
+    "filename": "getafe-cf-logo-footylogos.png",
+    "sha256": "2ebc69020951d6730940e5f596a279c952ae6e117119b93c84462e681d8b8f5b"
+  },
+  {
+    "slug": "levante-ud",
+    "name": "Levante UD",
+    "filename": "levante-ud-logo-footylogos.png",
+    "sha256": "2fd21d84f77f1bf6ad77f78ee6daa0b0aa531a109e9acf28dab989c88198994d"
+  },
+  {
+    "slug": "osasuna",
+    "name": "Osasuna",
+    "filename": "osasuna-logo-footylogos.png",
+    "sha256": "836ea6747185dae9856f6217618e69c3226012c1d7b74f89ba07bcfb1cf7138c"
+  },
+  {
+    "slug": "rcd-espanyol-barcelona",
+    "name": "RCD Espanyol Barcelona",
+    "filename": "rcd-espanyol-barcelona-logo-footylogos.png",
+    "sha256": "4c92a270346ef261639038e73d34270fd6f8d67c5d350092ce8fd231bcde1cab"
+  },
+  {
+    "slug": "racing-santander",
+    "name": "Racing Santander",
+    "filename": "racing-santander-logo-footylogos.png",
+    "sha256": "c1585ba381e5bd3cd1e89bf48bd1a2b773c2f0cedb65401fa683c0b7b2d4c141"
+  },
+  {
+    "slug": "rayo-vallecano",
+    "name": "Rayo Vallecano",
+    "filename": "rayo-vallecano-logo-footylogos.png",
+    "sha256": "c5b0a3ea0f443428fa762281dd8b6503a2c2ab70c3b1c2034a8b34bf9c4f243e"
+  },
+  {
+    "slug": "real-betis-balompie",
+    "name": "Real Betis Balompié",
+    "filename": "real-betis-balompie-logo-footylogos.png",
+    "sha256": "ee656d51a05593be9615c175a812ee8496a8fef7b70da8cb1ded703b85be0f92"
+  },
+  {
+    "slug": "real-madrid",
+    "name": "Real Madrid",
+    "filename": "real-madrid-logo-footylogos.png",
+    "sha256": "89aa0c148f9c88fd7b9efefbecd0eb46d3a383d6c9a1505c4ca6edc7ef871044"
+  },
+  {
+    "slug": "real-sociedad",
+    "name": "Real Sociedad",
+    "filename": "real-sociedad-logo-footylogos.png",
+    "sha256": "a54ba9549f2f04c8265729b5c701e0a1871c8735f38b40ceb2fb859c5b08e285"
+  },
+  {
+    "slug": "sevilla-fc",
+    "name": "Sevilla FC",
+    "filename": "sevilla-fc-logo-footylogos.png",
+    "sha256": "5928df776c383293ae8faebe8cc73d254be3562a5f1a76e17f299a7b8659667d"
+  },
+  {
+    "slug": "valencia-cf",
+    "name": "Valencia CF",
+    "filename": "valencia-cf-logo-footylogos.png",
+    "sha256": "b0ec7a657a59f252609971ab5b88f170d0349de8610ac07f7b36ee59e49bd143"
+  },
+  {
+    "slug": "villarreal-cf",
+    "name": "Villarreal CF",
+    "filename": "villarreal-cf-logo-footylogos.png",
+    "sha256": "b9002a8a203a17fcce60986387703168e3c9af16e091df2796cfd41963620291"
+  },
+  {
+    "slug": "deportivo-la-coruna",
+    "name": "Deportivo La Coruña",
+    "filename": "deportivo-la-coruna-logo-footylogos.png",
+    "sha256": "37050a44572fce1d28eb839407709d6aa41875f7142595de03bdcb5b6bdcdbc0"
+  },
+  {
+    "slug": "malaga-cf",
+    "name": "Málaga CF",
+    "filename": "malaga-cf-logo-footylogos.png",
+    "sha256": "daa9e3e7b4e070308c813d2d88def72b375d3b331a0adac5051000cdc9c7709a"
+  }
+]

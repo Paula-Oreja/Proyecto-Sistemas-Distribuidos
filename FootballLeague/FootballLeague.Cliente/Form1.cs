@@ -1,4 +1,4 @@
-using FootballLeague.Cliente.Services;
+ï»¿using FootballLeague.Cliente.Services;
 using FootballLeague.Cliente.Forms;
 using System.Drawing;
 using System.Text.Json;
@@ -9,9 +9,9 @@ namespace FootballLeague.Cliente
     {
         private readonly ApiService api = new();
 
-        private readonly Color azul = Color.FromArgb(17, 35, 67);
-        private readonly Color azulClaro = Color.FromArgb(33, 65, 112);
-        private readonly Color fondo = Color.FromArgb(245, 247, 251);
+        private readonly Color azul = Color.FromArgb(15, 23, 42);
+        private readonly Color azulClaro = Color.FromArgb(37, 99, 235);
+        private readonly Color fondo = Color.FromArgb(241, 245, 249);
 
         private DataGridView tabla = null!;
         private ComboBox selectorLiga = null!;
@@ -38,7 +38,9 @@ namespace FootballLeague.Cliente
         private readonly List<PartidoFila> partidos = new();
         private readonly List<JugadorFila> jugadores = new();
 
-        private string seccionActual = "Clasificación";
+        private string seccionActual = "Inicio";
+        private Panel inicio = null!;
+        private readonly Dictionary<string, Button> menuBotones = new();
 
         private bool iniciando = true;
         private bool cargandoJornadas;
@@ -97,7 +99,7 @@ namespace FootballLeague.Cliente
             {
                 await CargarSelectorLigas();
                 iniciando = false;
-                await MostrarSeccion("Clasificación");
+                await MostrarSeccion("Inicio");
             };
         }
 
@@ -106,7 +108,7 @@ namespace FootballLeague.Cliente
             SuspendLayout();
             Controls.Clear();
 
-            Text = "FootballLeague - Gestor de Fútbol";
+            Text = "FootballLeague - Gestor de FÃºtbol";
             StartPosition = FormStartPosition.CenterScreen;
             Size = new Size(1400, 820);
             MinimumSize = new Size(1100, 650);
@@ -134,7 +136,7 @@ namespace FootballLeague.Cliente
 
             Controls.Add(estructura);
 
-            // MENÚ LATERAL
+            // MENÃš LATERAL
 
             Panel menu = new()
             {
@@ -155,12 +157,13 @@ namespace FootballLeague.Cliente
 
             string[] secciones =
             {
+                "Inicio",
                 "Ligas",
                 "Equipos",
                 "Jugadores",
                 "Calendario",
                 "Resultados",
-                "Clasificación"
+                "ClasificaciÃ³n"
             };
 
             int y = 105;
@@ -171,7 +174,18 @@ namespace FootballLeague.Cliente
 
                 Button boton = new()
                 {
-                    Text = nombre,
+                    Text = (nombre switch
+                    {
+                        "Inicio" => "âŒ‚",
+                        "Ligas" => "â˜…",
+                        "Equipos" => "â—†",
+                        "Jugadores" => "â—",
+                        "Calendario" => "â–¦",
+                        "Resultados" => "âœ“",
+                        _ => "â–¥"
+                    }) + "   " + nombre,
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    Padding = new Padding(14, 0, 0, 0),
                     Location = new Point(10, y),
                     Size = new Size(200, 48),
                     BackColor = azulClaro,
@@ -187,6 +201,7 @@ namespace FootballLeague.Cliente
                     await MostrarSeccion(nombre);
 
                 menu.Controls.Add(boton);
+                menuBotones[nombre] = boton;
                 y += 57;
             }
 
@@ -268,11 +283,11 @@ namespace FootballLeague.Cliente
 
             distribucion.Controls.Add(barraSuperior, 0, 0);
 
-            // TÍTULO
+            // TÃTULO
 
             titulo = new Label
             {
-                Text = "Clasificación",
+                Text = "Inicio",
                 Dock = DockStyle.Fill,
                 Font = new Font("Segoe UI", 24, FontStyle.Bold),
                 ForeColor = azul,
@@ -316,7 +331,7 @@ namespace FootballLeague.Cliente
 
             barraAcciones.Controls.Add(selectorJornada);
 
-            // BOTÓN REGISTRAR RESULTADO
+            // BOTÃ“N REGISTRAR RESULTADO
 
             botonResultado =
                 CrearBoton("Registrar resultado", 190);
@@ -350,7 +365,7 @@ namespace FootballLeague.Cliente
 
             barraAcciones.Controls.Add(botonEditarEquipo);
 
-            // NUEVO BOTÓN ELIMINAR EQUIPO
+            // NUEVO BOTÃ“N ELIMINAR EQUIPO
 
             botonEliminarEquipo =
                 CrearBoton("Eliminar equipo", 170);
@@ -520,13 +535,30 @@ namespace FootballLeague.Cliente
                 }
             };
 
-            distribucion.Controls.Add(tabla, 0, 4);
+            var areaPrincipal = new Panel { Dock = DockStyle.Fill, Margin = Padding.Empty };
+            distribucion.Controls.Add(areaPrincipal, 0, 4);
+            areaPrincipal.Controls.Add(tabla);
+            inicio = new Panel { Dock = DockStyle.Fill, AutoScroll = true, BackColor = fondo };
+            areaPrincipal.Controls.Add(inicio);
+            tabla.CellFormatting += (_, e) =>
+            {
+                if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+                if (seccionActual == "ClasificaciÃ³n" && tabla.Columns[e.ColumnIndex].Name == "Pos" && e.Value is int pos)
+                {
+                    e.CellStyle.BackColor = pos <= 4 ? Color.FromArgb(219, 234, 254) :
+                        pos >= 18 ? Color.FromArgb(254, 226, 226) : Color.White;
+                    e.CellStyle.ForeColor = pos >= 18 ? Color.DarkRed : azul;
+                }
+            };
+            tabla.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            tabla.GridColor = Color.FromArgb(226, 232, 240);
+            tabla.DefaultCellStyle.Padding = new Padding(5, 0, 5, 0);
 
             // ESTADO INFERIOR
 
             estado = new Label
             {
-                Text = "Preparando conexión...",
+                Text = "Preparando conexiÃ³n...",
                 Dock = DockStyle.Fill,
                 ForeColor = Color.DimGray,
                 Font = new Font("Segoe UI", 10),
@@ -559,7 +591,7 @@ namespace FootballLeague.Cliente
             return boton;
         }
 
-        // MOSTRAR BOTONES SEGÚN LA SECCIÓN
+        // MOSTRAR BOTONES SEGÃšN LA SECCIÃ“N
 
         private void ActualizarBotones()
         {
@@ -568,9 +600,14 @@ namespace FootballLeague.Cliente
             bool esEquipos = seccionActual == "Equipos";
             bool esJugadores = seccionActual == "Jugadores";
 
-            barraAcciones.Visible =
-                esCalendario || esResultados ||
-                esEquipos || esJugadores;
+            barraAcciones.Visible = esCalendario || esResultados || esEquipos || esJugadores;
+            distribucion.RowStyles[2].Height = (esCalendario || esResultados || esEquipos || esJugadores) ? 55 : 0;
+            bool esInicio = seccionActual == "Inicio";
+            tabla.Visible = !esInicio;
+            inicio.Visible = esInicio;
+            if (esInicio) inicio.BringToFront(); else tabla.BringToFront();
+            foreach (var par in menuBotones)
+                par.Value.BackColor = par.Key == seccionActual ? azulClaro : azul;
 
             etiquetaJornada.Visible =
                 esCalendario || esResultados;
@@ -624,7 +661,7 @@ namespace FootballLeague.Cliente
 
             if (tabla.Columns.Contains("Posicion"))
             {
-                tabla.Columns["Posicion"]!.HeaderText = "Posición";
+                tabla.Columns["Posicion"]!.HeaderText = "PosiciÃ³n";
                 tabla.Columns["Posicion"]!.MinimumWidth = 130;
                 tabla.Columns["Posicion"]!.FillWeight = 110;
             }
@@ -670,9 +707,9 @@ namespace FootballLeague.Cliente
             {
                 MessageBox.Show(
                     "No se pudo conectar con la API.\n" +
-                    "Comprueba que está ejecutándose.\n\n" +
+                    "Comprueba que estÃ¡ ejecutÃ¡ndose.\n\n" +
                     ex.Message,
-                    "Error de conexión",
+                    "Error de conexiÃ³n",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
@@ -733,7 +770,7 @@ namespace FootballLeague.Cliente
             }
         }
 
-        // MOSTRAR SECCIÓN
+        // MOSTRAR SECCIÃ“N
 
         private async Task MostrarSeccion(string seccion)
         {
@@ -760,6 +797,9 @@ namespace FootballLeague.Cliente
 
                 switch (seccion)
                 {
+                    case "Inicio":
+                        await CargarInicio(ligaId);
+                        break;
                     case "Ligas":
                         await CargarLigas();
                         break;
@@ -777,12 +817,12 @@ namespace FootballLeague.Cliente
                         await CargarCalendario(ligaId);
                         break;
 
-                    case "Clasificación":
+                    case "ClasificaciÃ³n":
                         await CargarClasificacion(ligaId);
                         break;
                 }
 
-                if (seccion != "Jugadores" &&
+                if (seccion != "Inicio" && seccion != "Jugadores" &&
                     seccion != "Calendario" &&
                     seccion != "Resultados")
                 {
@@ -809,6 +849,43 @@ namespace FootballLeague.Cliente
                 barraFiltro.Enabled = true;
                 selectorLiga.Enabled = true;
             }
+        }
+
+        private async Task CargarInicio(int ligaId)
+        {
+            foreach (Control control in inicio.Controls.Cast<Control>().ToArray()) control.Dispose();
+            var equipos = await api.ObtenerListaAsync<JsonElement>("api/Clasificacion/liga/" + ligaId);
+            var todosJugadores = await api.ObtenerListaAsync<JsonElement>("api/Jugadores");
+            var jornadas = await api.ObtenerListaAsync<JsonElement>("api/Calendario/liga/" + ligaId);
+            var encuentros = jornadas.SelectMany(j => j.TryGetProperty("partidos", out var p) && p.ValueKind == JsonValueKind.Array ? p.EnumerateArray().ToArray() : Array.Empty<JsonElement>()).ToList();
+            var terminados = encuentros.Where(p => Booleano(p, "finalizado")).ToList();
+            var ids = equipos.Select(e => Entero(e, "equipoId")).ToHashSet();
+            int totalJugadores = (ids.Contains(0) || ids.Count == 0) ? todosJugadores.Count : todosJugadores.Count(j => ids.Contains(Entero(j, "equipoId")));
+            var panel = new TableLayoutPanel { Dock = DockStyle.Top, Height = 420, ColumnCount = 2, RowCount = 4, BackColor = fondo };
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+            for (int i = 0; i < 4; i++) panel.RowStyles.Add(new RowStyle(SizeType.Absolute, i == 3 ? 90 : 110));
+            void Tarjeta(string nombre, string valor, int col, int fila)
+            {
+                var tarjeta = new Panel { Dock = DockStyle.Fill, BackColor = Color.White, Margin = new Padding(5, 5, 12, 8), Padding = new Padding(16) };
+                tarjeta.Controls.Add(new Label { Text = nombre, Dock = DockStyle.Top, Height = 27, ForeColor = Color.DimGray, Font = new Font("Segoe UI", 11) });
+                var cifra = new Label { Text = valor, Dock = DockStyle.Bottom, Height = 45, ForeColor = azul, Font = new Font("Segoe UI", 20, FontStyle.Bold), AutoEllipsis = true };
+                tarjeta.Controls.Add(cifra);
+                panel.Controls.Add(tarjeta, col, fila);
+            }
+            Tarjeta("Equipos inscritos", equipos.Count.ToString(), 0, 0);
+            Tarjeta((ids.Contains(0) || ids.Count == 0) ? "Jugadores registrados (total)" : "Jugadores de la liga", totalJugadores.ToString(), 1, 0);
+            Tarjeta("Jornadas", jornadas.Count.ToString(), 0, 1);
+            Tarjeta("Partidos programados", encuentros.Count.ToString(), 1, 1);
+            Tarjeta("Partidos finalizados", terminados.Count.ToString(), 0, 2);
+            Tarjeta("Partidos pendientes", (encuentros.Count - terminados.Count).ToString(), 1, 2);
+            var resumen = new Label { Dock = DockStyle.Fill, BackColor = Color.White, Padding = new Padding(16), Margin = new Padding(5, 5, 12, 8), Font = new Font("Segoe UI", 12, FontStyle.Bold), ForeColor = azul, TextAlign = ContentAlignment.MiddleLeft };
+            var partido = terminados.LastOrDefault();
+            resumen.Text = terminados.Count == 0 ? "TodavÃ­a no hay resultados registrados." : $"Resultado de ejemplo de la liga:  {NombreEquipo(partido, "equipoLocal")}   {Texto(partido, "golesLocal")} - {Texto(partido, "golesVisitante")}   {NombreEquipo(partido, "equipoVisitante")}";
+            panel.Controls.Add(resumen, 0, 3);
+            panel.SetColumnSpan(resumen, 2);
+            inicio.Controls.Add(panel);
+            estado.Text = "Resumen de la liga actualizado correctamente.";
         }
 
         // CREAR EQUIPO
@@ -888,9 +965,9 @@ namespace FootballLeague.Cliente
                 ?? "el equipo seleccionado";
 
             DialogResult confirmacion = MessageBox.Show(
-                $"¿Seguro que deseas eliminar a {nombre}?\n\n" +
-                "Esta acción no se puede deshacer.",
-                "Confirmar eliminación",
+                $"Â¿Seguro que deseas eliminar a {nombre}?\n\n" +
+                "Esta acciÃ³n no se puede deshacer.",
+                "Confirmar eliminaciÃ³n",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning,
                 MessageBoxDefaultButton.Button2);
@@ -927,7 +1004,7 @@ namespace FootballLeague.Cliente
                         $"No se puede eliminar a {nombre}.\n\n" +
                         "El equipo tiene inscripciones, jugadores " +
                         "o partidos asociados.",
-                        "Eliminación no permitida",
+                        "EliminaciÃ³n no permitida",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
                 }
@@ -1051,9 +1128,9 @@ namespace FootballLeague.Cliente
                 ?? "el jugador seleccionado";
 
             DialogResult confirmacion = MessageBox.Show(
-                $"¿Seguro que deseas eliminar a {nombre}?\n\n" +
-                "Esta acción no se puede deshacer.",
-                "Confirmar eliminación",
+                $"Â¿Seguro que deseas eliminar a {nombre}?\n\n" +
+                "Esta acciÃ³n no se puede deshacer.",
+                "Confirmar eliminaciÃ³n",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning,
                 MessageBoxDefaultButton.Button2);
@@ -1132,7 +1209,7 @@ namespace FootballLeague.Cliente
                 ID = Entero(x, "id"),
                 Nombre = Texto(x, "nombre"),
                 Temporada = Texto(x, "temporada"),
-                Activa = Booleano(x, "activa") ? "Sí" : "No"
+                Activa = Booleano(x, "activa") ? "SÃ­" : "No"
             }).ToList();
         }
 
@@ -1329,7 +1406,7 @@ namespace FootballLeague.Cliente
                 $"Jornada {numero}: {tabla.Rows.Count} partidos.";
         }
 
-        // CARGAR CLASIFICACIÓN
+        // CARGAR CLASIFICACIÃ“N
 
         private async Task CargarClasificacion(int ligaId)
         {
@@ -1384,7 +1461,7 @@ namespace FootballLeague.Cliente
 
                 if (datos.ValueKind != JsonValueKind.Object)
                 {
-                    MessageBox.Show("No se encontró el partido.");
+                    MessageBox.Show("No se encontrÃ³ el partido.");
                     return;
                 }
 
@@ -1393,7 +1470,7 @@ namespace FootballLeague.Cliente
                 if (version < 1)
                 {
                     MessageBox.Show(
-                        "No se pudo obtener la versión del partido.");
+                        "No se pudo obtener la versiÃ³n del partido.");
 
                     return;
                 }
@@ -1501,7 +1578,7 @@ namespace FootballLeague.Cliente
                     MessageBox.Show(
                         "El partido ha sido modificado " +
                         "por otro usuario.\n" +
-                        "Se actualizarán los datos.",
+                        "Se actualizarÃ¡n los datos.",
                         "Conflicto de concurrencia",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
@@ -1513,7 +1590,7 @@ namespace FootballLeague.Cliente
 
                     MessageBox.Show(
                         "No se pudo guardar el resultado.\n" +
-                        $"Código: {(int)respuesta.StatusCode}\n\n" +
+                        $"CÃ³digo: {(int)respuesta.StatusCode}\n\n" +
                         detalle,
                         "Error",
                         MessageBoxButtons.OK,
@@ -1540,7 +1617,7 @@ namespace FootballLeague.Cliente
                 await MostrarSeccion("Resultados");
         }
 
-        // MÉTODOS AUXILIARES
+        // MÃ‰TODOS AUXILIARES
 
         private static string NombreEquipo(
             JsonElement partido, string propiedad)
