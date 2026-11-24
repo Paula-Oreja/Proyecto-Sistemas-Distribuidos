@@ -1,4 +1,3 @@
-
 using FootballLeague.Cliente.Services;
 using FootballLeague.Cliente.Forms;
 using System.Drawing;
@@ -23,12 +22,16 @@ namespace FootballLeague.Cliente
 
         private ComboBox selectorLiga = null!;
         private ComboBox selectorJornada = null!;
+        private ComboBox selectorEquipo = null!;
 
         private Label titulo = null!;
         private Label estado = null!;
         private Label etiquetaJornada = null!;
 
         private FlowLayoutPanel barraAcciones = null!;
+        private FlowLayoutPanel barraFiltro = null!;
+
+        private TableLayoutPanel distribucion = null!;
 
         private Button botonCrearEquipo = null!;
         private Button botonEditarEquipo = null!;
@@ -40,12 +43,14 @@ namespace FootballLeague.Cliente
         private Button botonResultado = null!;
 
         private readonly List<PartidoFila> partidos = new();
+        private readonly List<JugadorFila> jugadores = new();
 
         private string seccionActual = "Clasificación";
 
         private bool iniciando = true;
         private bool cargandoJornadas = false;
         private bool cargandoSeccion = false;
+        private bool cargandoEquipos = false;
 
         private class LigaOpcion
         {
@@ -57,6 +62,33 @@ namespace FootballLeague.Cliente
             {
                 return $"{Nombre} (ID {Id})";
             }
+        }
+
+        private class EquipoOpcion
+        {
+            public int Id { get; set; }
+
+            public string Nombre { get; set; } = "";
+
+            public override string ToString()
+            {
+                return Nombre;
+            }
+        }
+
+        private class JugadorFila
+        {
+            public int ID { get; set; }
+
+            public string Nombre { get; set; } = "";
+
+            public int Dorsal { get; set; }
+
+            public string Posicion { get; set; } = "";
+
+            public string Equipo { get; set; } = "";
+
+            public int EquipoId { get; set; }
         }
 
         private class PartidoFila
@@ -212,13 +244,13 @@ namespace FootballLeague.Cliente
 
             estructura.Controls.Add(contenido, 1, 0);
 
-            TableLayoutPanel distribucion = new()
+            distribucion = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
 
                 ColumnCount = 1,
 
-                RowCount = 5,
+                RowCount = 6,
 
                 Margin = Padding.Empty,
 
@@ -236,6 +268,9 @@ namespace FootballLeague.Cliente
 
             distribucion.RowStyles.Add(
                 new RowStyle(SizeType.Absolute, 55));
+
+            distribucion.RowStyles.Add(
+                new RowStyle(SizeType.Absolute, 0));
 
             distribucion.RowStyles.Add(
                 new RowStyle(SizeType.Percent, 100));
@@ -425,6 +460,78 @@ namespace FootballLeague.Cliente
             distribucion.Controls.Add(
                 barraAcciones, 0, 2);
 
+            // FILTRO DE JUGADORES POR EQUIPO
+
+            barraFiltro = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+
+                WrapContents = false,
+
+                Padding = new Padding(0, 5, 0, 0)
+            };
+
+            Label etiquetaEquipo = new()
+            {
+                Text = "Filtrar por equipo:",
+
+                Width = 155,
+
+                Height = 35,
+
+                Font = new Font(
+                    "Segoe UI", 11, FontStyle.Bold),
+
+                ForeColor = azul,
+
+                TextAlign =
+                    ContentAlignment.MiddleLeft
+            };
+
+            barraFiltro.Controls.Add(etiquetaEquipo);
+
+            selectorEquipo = new ComboBox
+            {
+                Width = 350,
+
+                DropDownStyle =
+                    ComboBoxStyle.DropDownList,
+
+                Font = new Font("Segoe UI", 11),
+
+                Margin = new Padding(0, 3, 15, 0),
+
+                MaxDropDownItems = 15
+            };
+
+            selectorEquipo.SelectedIndexChanged +=
+                (_, _) =>
+                {
+                    if (!cargandoEquipos &&
+                        !cargandoSeccion &&
+                        seccionActual == "Jugadores")
+                    {
+                        MostrarJugadoresFiltrados();
+                    }
+                };
+
+            barraFiltro.Controls.Add(selectorEquipo);
+
+            Button limpiarFiltro =
+                CrearBoton("Todos los equipos", 170);
+
+            limpiarFiltro.Click += (_, _) =>
+            {
+                if (selectorEquipo.Items.Count > 0)
+                {
+                    selectorEquipo.SelectedIndex = 0;
+                }
+            };
+
+            barraFiltro.Controls.Add(limpiarFiltro);
+
+            distribucion.Controls.Add(barraFiltro, 0, 3);
+
             // TABLA PRINCIPAL
 
             tabla = new DataGridView
@@ -504,7 +611,7 @@ namespace FootballLeague.Cliente
                 }
             };
 
-            distribucion.Controls.Add(tabla, 0, 3);
+            distribucion.Controls.Add(tabla, 0, 4);
 
             // ESTADO INFERIOR
 
@@ -522,7 +629,7 @@ namespace FootballLeague.Cliente
                     ContentAlignment.MiddleLeft
             };
 
-            distribucion.Controls.Add(estado, 0, 4);
+            distribucion.Controls.Add(estado, 0, 5);
 
             ActualizarBotones();
 
@@ -593,6 +700,11 @@ namespace FootballLeague.Cliente
             botonEditarJugador.Visible = esJugadores;
 
             botonEliminarJugador.Visible = esJugadores;
+
+            barraFiltro.Visible = esJugadores;
+
+            distribucion.RowStyles[3].Height =
+                esJugadores ? 50 : 0;
         }
 
         // AJUSTAR COLUMNAS
@@ -635,12 +747,23 @@ namespace FootballLeague.Cliente
             {
                 tabla.Columns["Posicion"]!.HeaderText =
                     "Posición";
+
+                tabla.Columns["Posicion"]!.MinimumWidth =
+                    130;
+
+                tabla.Columns["Posicion"]!.FillWeight =
+                    110;
             }
 
-            if (seccionActual == "Jugadores" &&
-                tabla.Columns.Contains("ID"))
+            if (tabla.Columns.Contains("ID"))
             {
-                tabla.Columns["ID"]!.Visible = false;
+                tabla.Columns["ID"]!.Visible =
+                    seccionActual != "Jugadores";
+            }
+
+            if (tabla.Columns.Contains("EquipoId"))
+            {
+                tabla.Columns["EquipoId"]!.Visible = false;
             }
         }
 
@@ -693,6 +816,56 @@ namespace FootballLeague.Cliente
                     ?.Id ?? 2;
         }
 
+        // CARGAR SELECTOR DE EQUIPOS
+
+        private async Task CargarSelectorEquipos()
+        {
+            int equipoAnterior =
+                (selectorEquipo.SelectedItem as EquipoOpcion)
+                    ?.Id ?? 0;
+
+            cargandoEquipos = true;
+
+            try
+            {
+                var datos =
+                    await api.ObtenerListaAsync<JsonElement>(
+                        "api/Equipos");
+
+                var opciones = new List<EquipoOpcion>
+                {
+                    new EquipoOpcion
+                    {
+                        Id = 0,
+                        Nombre = "Todos los equipos"
+                    }
+                };
+
+                opciones.AddRange(
+                    datos.Select(x => new EquipoOpcion
+                    {
+                        Id = Entero(x, "id"),
+
+                        Nombre = Texto(x, "nombre")
+                    })
+                    .OrderBy(x => x.Nombre));
+
+                selectorEquipo.DataSource = null;
+
+                selectorEquipo.DataSource = opciones;
+
+                var anterior = opciones.FirstOrDefault(
+                    x => x.Id == equipoAnterior);
+
+                selectorEquipo.SelectedItem =
+                    anterior ?? opciones[0];
+            }
+            finally
+            {
+                cargandoEquipos = false;
+            }
+        }
+
         // MOSTRAR SECCIÓN
 
         private async Task MostrarSeccion(string seccion)
@@ -711,6 +884,8 @@ namespace FootballLeague.Cliente
             ActualizarBotones();
 
             barraAcciones.Enabled = false;
+
+            barraFiltro.Enabled = false;
 
             tabla.DataSource = null;
 
@@ -742,9 +917,14 @@ namespace FootballLeague.Cliente
                         break;
                 }
 
-                estado.Text =
-                    "Datos cargados correctamente. " +
-                    $"Registros visibles: {tabla.Rows.Count}";
+                if (seccion != "Jugadores" &&
+                    seccion != "Calendario" &&
+                    seccion != "Resultados")
+                {
+                    estado.Text =
+                        "Datos cargados correctamente. " +
+                        $"Registros visibles: {tabla.Rows.Count}";
+                }
             }
             catch (Exception ex)
             {
@@ -765,6 +945,8 @@ namespace FootballLeague.Cliente
                 cargandoSeccion = false;
 
                 barraAcciones.Enabled = true;
+
+                barraFiltro.Enabled = true;
             }
         }
 
@@ -926,6 +1108,8 @@ namespace FootballLeague.Cliente
 
             barraAcciones.Enabled = false;
 
+            barraFiltro.Enabled = false;
+
             try
             {
                 using var respuesta =
@@ -976,6 +1160,8 @@ namespace FootballLeague.Cliente
             finally
             {
                 barraAcciones.Enabled = true;
+
+                barraFiltro.Enabled = true;
             }
         }
 
@@ -1026,23 +1212,77 @@ namespace FootballLeague.Cliente
 
         private async Task CargarJugadores()
         {
+            jugadores.Clear();
+
+            await CargarSelectorEquipos();
+
             var datos =
                 await api.ObtenerListaAsync<JsonElement>(
                     "api/Jugadores");
 
-            tabla.DataSource = datos.Select(x => new
+            jugadores.AddRange(
+                datos.Select(x => new JugadorFila
+                {
+                    ID = Entero(x, "id"),
+
+                    Nombre = Texto(x, "nombre"),
+
+                    Dorsal = Entero(x, "dorsal"),
+
+                    Posicion = Texto(x, "posicion"),
+
+                    Equipo = Texto(x, "nombreEquipo"),
+
+                    EquipoId = Entero(x, "equipoId")
+                }));
+
+            MostrarJugadoresFiltrados();
+        }
+
+        // FILTRAR JUGADORES POR EQUIPO
+
+        private void MostrarJugadoresFiltrados()
+        {
+            if (seccionActual != "Jugadores")
+                return;
+
+            var equipoSeleccionado =
+                selectorEquipo.SelectedItem as EquipoOpcion;
+
+            int equipoId =
+                equipoSeleccionado?.Id ?? 0;
+
+            string nombreEquipo =
+                equipoSeleccionado?.Nombre ??
+                "Todos los equipos";
+
+            IEnumerable<JugadorFila> resultado = jugadores;
+
+            if (equipoId != 0)
             {
-                ID = Entero(x, "id"),
+                resultado = resultado.Where(
+                    j => j.EquipoId == equipoId);
+            }
 
-                Nombre = Texto(x, "nombre"),
+            var lista = resultado
+                .OrderBy(j => j.Equipo)
+                .ThenBy(j => j.Dorsal)
+                .ToList();
 
-                Dorsal = Entero(x, "dorsal"),
+            tabla.DataSource = null;
 
-                Posicion = Texto(x, "posicion"),
+            tabla.DataSource = lista;
 
-                Equipo = Texto(x, "nombreEquipo")
-            })
-            .ToList();
+            tabla.ClearSelection();
+
+            if (tabla.Rows.Count > 0)
+            {
+                tabla.FirstDisplayedScrollingRowIndex = 0;
+            }
+
+            estado.Text =
+                $"{nombreEquipo}: {lista.Count} jugadores. " +
+                $"Total registrado: {jugadores.Count}.";
         }
 
         // CARGAR CALENDARIO
@@ -1148,6 +1388,8 @@ namespace FootballLeague.Cliente
             if (selectorJornada.SelectedItem is not int numero)
             {
                 tabla.DataSource = null;
+
+                estado.Text = "No hay jornadas disponibles.";
 
                 return;
             }
